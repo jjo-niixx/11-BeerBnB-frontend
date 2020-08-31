@@ -18,7 +18,9 @@ export default class HeaderOption extends Component {
         >
           {title}
         </OptionTitle>
-        <div>{isPushed && headerOptionClickedAt !== 4 && <HeaderModal />}</div>
+        <ModalWrapper>
+          {isPushed && headerOptionClickedAt !== 4 && <HeaderModal />}
+        </ModalWrapper>
       </div>
     );
   }
@@ -36,4 +38,8 @@ const OptionTitle = styled.div`
   &:hover {
     border-color: black;
   }
+`;
+
+const ModalWrapper = styled.div`
+  position: relative;
 `;

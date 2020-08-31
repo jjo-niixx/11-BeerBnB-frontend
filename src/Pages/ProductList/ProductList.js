@@ -9,20 +9,19 @@ function ProductList() {
 
   const gotoHandler = (name, idx) => {
     if (name === "headerOption") {
-      if (headerOptionClickedAt === idx) {
-        setHeaderOptionClickedAt("");
-      } else setHeaderOptionClickedAt(idx);
+      setHeaderOptionClickedAt(headerOptionClickedAt === idx ? "" : idx);
     }
     if (name === "pageNum") {
-      if (`${name}ClickedAt` === idx) return;
+      if (pageNumClickedAt === idx) return;
       setPageNumClickedAt(idx);
     }
     if (name === "nextPrev") {
       setPageNumClickedAt(pageNumClickedAt + idx);
     }
   };
+
   return (
-    <div>
+    <>
       <EmptyHeaderNav />
       <ProductListWrap>
         <ProductListMain
@@ -32,7 +31,7 @@ function ProductList() {
         />
         <AsideMap />
       </ProductListWrap>
-    </div>
+    </>
   );
 }
 
