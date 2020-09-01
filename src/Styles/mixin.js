@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-
 const mixin = {
   flexSet: (
     flexDirection = "row",
@@ -12,5 +11,4 @@ const mixin = {
     align-items: ${alignItems};
   `,
 };
-
 export default mixin;
