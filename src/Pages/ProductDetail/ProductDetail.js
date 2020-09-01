@@ -1,9 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
+import styled from "styled-components";
+import RoomIntroduce from "./RoomIntroduce/RoomIntroduce";
 
-class ProductDetail extends Component {
-  render() {
-    return <div></div>;
-  }
+export default function ProductDetail() {
+  return (
+    <Main>
+      <RoomIntroduce />
+    </Main>
+  );
 }
 
-export default ProductDetail;
+const Main = styled.main`
+  max-width: 1280px;
+  height: 100%;
+  margin: auto;
+`;
