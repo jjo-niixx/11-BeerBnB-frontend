@@ -165,7 +165,7 @@ const FormContainer = styled.form`
 `;
 
 const RoomSearch = styled.div`
-  ${mixin.flexCenterAndSetJustify("space-around")}
+  ${mixin.flexSet("row", "space-around")}
   max-width: 850px;
   height: 66px;
   margin: 0 auto;
@@ -192,7 +192,7 @@ const SearchItem = styled.button`
   }
 
   &:nth-of-type(4) {
-    ${mixin.flexCenterAndSetJustify("space-between")}
+    ${mixin.flexSet("row", "space-between")}
   }
 
   &:hover {
@@ -235,7 +235,7 @@ const OnClickedSection = styled.div`
 `;
 
 const ReducedSearch = styled.button`
-  ${mixin.flexCenterAndSetJustify("space-between")}
+  ${mixin.flexSet("row", "space-between")}
   position: absolute;
   top: 20px;
   right: 0;
