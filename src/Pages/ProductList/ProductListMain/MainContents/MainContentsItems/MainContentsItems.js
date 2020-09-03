@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import MainItemImgSlide from "./MainItemImgSlide/MainItemImgSlide";
 import ProductListSvg from "../../../ProductListSvg/ProductListSvg";
+import { BtnSvgContainer } from "./MainItemImgSlide/ImgSlideMoveBtn/ImgSlideMoveBtn";
 
 export default class MainContentsItems extends Component {
   render() {
@@ -56,6 +57,12 @@ const ItemsWrapper = styled.div`
   display: flex;
   height: 200px;
   cursor: pointer;
+
+  &:hover {
+    ${BtnSvgContainer} {
+      opacity: 1;
+    }
+  }
 `;
 
 const ItemInfo = styled.div`

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import ProductListPageBtn from "./ProductListPageBtn/ProductListPageBtn";
-import FooterNextPrevBtnSvg from "./FooterNextPrevBtn/FooterNextPrevBtnSvg";
+import FooterNextPrevBtnSvg from "./FooterNextPrevBtn/FooterNextPrevBtn";
 import ProductListSvg from "../../../ProductListSvg/ProductListSvg";
 import mixin from "../../../../../Styles/mixin";
 
@@ -15,7 +15,7 @@ export default class ProductListMainFooter extends Component {
             <FooterNextPrevBtnSvg
               num={-1}
               gotoHandler={gotoHandler}
-              btnSvg={ProductListSvg.prevBtnImg}
+              btnSvg={ProductListSvg.prevBtn}
             />
           )}
           {tempData.map((el) => (
@@ -30,7 +30,7 @@ export default class ProductListMainFooter extends Component {
             <FooterNextPrevBtnSvg
               num={1}
               gotoHandler={gotoHandler}
-              btnSvg={ProductListSvg.nextBtnImg}
+              btnSvg={ProductListSvg.nextBtn}
             />
           )}
         </WrapFooterPageBtn>
