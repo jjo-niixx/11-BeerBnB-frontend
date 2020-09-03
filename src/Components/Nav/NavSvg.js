@@ -35,13 +35,13 @@ const NavSvg = {
       <path
         d="M1 1L4.5 4.5L8 1"
         stroke="currentcolor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   ),
-  profileBtnStroke: (
+  PoppedProfileBtnStroke: (
     <svg
       aria-hidden="true"
       role="presentation"
@@ -58,14 +58,14 @@ const NavSvg = {
         overflow: "visible",
       }}
     >
-      <g fill="none" fill-rule="nonzero">
+      <g fill="none" fillRule="nonzero">
         <path d="m2 16h28"></path>
         <path d="m2 24h28"></path>
         <path d="m2 8h28"></path>
       </g>
     </svg>
   ),
-  profileBtnPerson: (
+  PoppedProfileBtnPerson: (
     <svg
       aria-hidden="true"
       role="presentation"
@@ -131,6 +131,315 @@ const NavSvg = {
       <g fill="none">
         <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
       </g>
+    </svg>
+  ),
+  modalClose: (
+    <svg
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      style={{
+        display: "block",
+        fill: "none",
+        height: "16px",
+        width: "16px",
+        stroke: "currentcolor",
+        strokeWidth: "3",
+        overflow: "visible",
+      }}
+    >
+      <path d="m6 6 20 20"></path>
+      <path d="m26 6-20 20"></path>
+    </svg>
+  ),
+  facebookLogo: (
+    <svg
+      viewBox="0 0 32 32"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "18px",
+        width: "18px",
+        display: "inline-block",
+        marginRight: "12px",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m8 14.41v-4.17c0-.42.35-.81.77-.81h2.52v-2.08c0-4.84 2.48-7.31 7.42-7.35 1.65 0 3.22.21 4.69.64.46.14.63.42.6.88l-.56 4.06c-.04.18-.14.35-.32.53-.21.11-.42.18-.63.14-.88-.25-1.78-.35-2.8-.35-1.4 0-1.61.28-1.61 1.73v1.8h4.52c.42 0 .81.42.81.88l-.35 4.17c0 .42-.35.71-.77.71h-4.21v16c0 .42-.35.81-.77.81h-5.21c-.42 0-.8-.39-.8-.81v-16h-2.52a.78.78 0 0 1 -.78-.78"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  googleLogo: (
+    <svg
+      viewBox="0 0 18 18"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "18px",
+        width: " 18px",
+        display: "inline-block",
+        marginRight: "12px",
+      }}
+    >
+      <g fill="none" fill-rule="evenodd">
+        <path
+          d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"
+          fill="#EA4335"
+        ></path>
+        <path
+          d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"
+          fill="#4285F4"
+        ></path>
+        <path
+          d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"
+          fill="#FBBC05"
+        ></path>
+        <path
+          d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"
+          fill="#34A853"
+        ></path>
+        <path d="M0 0h18v18H0V0z"></path>
+      </g>
+    </svg>
+  ),
+  mobile: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        position: "absolute",
+        top: "25%",
+        right: "11px",
+        height: "1em",
+        width: "1em",
+        display: "inline-block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m22.79 18.26-3.44-3.44a1.65 1.65 0 0 0 -2.34 0l-.52.52-1.23 1.23a.66.66 0 0 1 -.94-.01l-6.8-6.8a.66.66 0 0 1 -.01-.94l1.74-1.74c.65-.65.65-1.7 0-2.34l-3.44-3.44a1.65 1.65 0 0 0 -2.34 0l-2.6 2.59c-.59.59-.83 1.65-.54 2.42.01.03.04.13.09.28.08.24.18.51.3.81a33.12 33.12 0 0 0 1.24 2.76c1.4 2.79 3.15 5.37 5.28 7.5 2.35 2.34 4.82 4.01 7.27 5.11.86.39 1.66.67 2.37.88.44.12.75.19.93.22.75.19 1.79-.11 2.37-.68l1.37-1.37.71-.71.52-.52a1.65 1.65 0 0 0 0-2.34zm-18.59-16.25a.65.65 0 0 1 .92 0l3.44 3.44a.65.65 0 0 1 0 .93l-.52.52-.07-.07-4.22-4.22-.07-.07zm15.29 20.48c-.33.33-1.01.52-1.46.41a8.24 8.24 0 0 1 -.85-.2 16.65 16.65 0 0 1 -2.24-.83c-2.34-1.05-4.71-2.65-6.97-4.9-2.05-2.05-3.74-4.55-5.09-7.25a32.02 32.02 0 0 1 -1.2-2.68 23 23 0 0 1 -.38-1.04c-.16-.43-.01-1.08.3-1.39l1.37-1.37.07.07 4.22 4.22.07.07-.52.52a1.66 1.66 0 0 0 .01 2.35l6.8 6.8a1.66 1.66 0 0 0 2.35.01l.52-.52 4.36 4.36-1.37 1.37zm2.6-2.6-.52.52-4.36-4.36.52-.52a.65.65 0 0 1 .93 0l3.44 3.44a.65.65 0 0 1 0 .92z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  password: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        position: "absolute",
+        top: "25%",
+        right: "11px",
+        height: "1em",
+        width: "1em",
+        display: "inline-block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m19.5 9h-.5v-2a7 7 0 1 0 -14 0v2h-.5c-.78 0-1.5.72-1.5 1.5v12c0 .78.72 1.5 1.5 1.5h15c .78 0 1.5-.72 1.5-1.5v-12c0-.78-.72-1.5-1.5-1.5zm.5 13.5c0 .22-.28.5-.5.5h-15c-.22 0-.5-.28-.5-.5v-12c0-.22.28-.5.5-.5h1a .5.5 0 0 0 .5-.5v-2.5a6 6 0 1 1 12 0v2.5a.5.5 0 0 0 .5.5h1c .22 0 .5.28.5.5zm-8-10.5a3 3 0 0 0 -3 3c0 .83.36 1.59.94 2.15l-.9 2.16a.5.5 0 0 0 .46.69h5a .5.5 0 0 0 .46-.69l-.87-2.19c.56-.55.91-1.31.91-2.13a3 3 0 0 0 -3-3zm1.04 5.19.72 1.81h-3.51l.74-1.79a.5.5 0 0 0 -.17-.6 2 2 0 1 1 3.18-1.61c0 .64-.31 1.24-.8 1.6a.5.5 0 0 0 -.17.59zm-1.04-14.19a4 4 0 0 0 -4 4v2.5a.5.5 0 0 0 .5.5h7a .5.5 0 0 0 .5-.5v-2.5a4 4 0 0 0 -4-4zm3 6h-6v-2a3 3 0 1 1 6 0z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  goBack: (
+    <svg
+      viewBox="0 0 18 18"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "1em",
+        width: "1em",
+        display: "block",
+        fill: "rgb(0, 132, 137)",
+      }}
+    >
+      <path
+        d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  email: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "18px",
+        width: "18px",
+        display: "block",
+        marginRight: "12px",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m22.5 4h-21c-.83 0-1.5.67-1.5 1.51v12.99c0 .83.67 1.5 1.5 1.5h20.99a1.5 1.5 0 0 0 1.51-1.51v-12.98c0-.84-.67-1.51-1.5-1.51zm.5 14.2-6.14-7.91 6.14-4.66v12.58zm-.83-13.2-9.69 7.36c-.26.2-.72.2-.98 0l-9.67-7.36h20.35zm-21.17.63 6.14 4.67-6.14 7.88zm.63 13.37 6.3-8.1 2.97 2.26c.62.47 1.57.47 2.19 0l2.97-2.26 6.29 8.1z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  emailInput: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        position: "absolute",
+        top: "15px",
+        right: "11px",
+        height: "1em",
+        width: "1em",
+        display: "block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m22.5 4h-21c-.83 0-1.5.67-1.5 1.51v12.99c0 .83.67 1.5 1.5 1.5h20.99a1.5 1.5 0 0 0 1.51-1.51v-12.98c0-.84-.67-1.51-1.5-1.51zm.5 14.2-6.14-7.91 6.14-4.66v12.58zm-.83-13.2-9.69 7.36c-.26.2-.72.2-.98 0l-9.67-7.36h20.35zm-21.17.63 6.14 4.67-6.14 7.88zm.63 13.37 6.3-8.1 2.97 2.26c.62.47 1.57.47 2.19 0l2.97-2.26 6.29 8.1z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  person: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        position: "absolute",
+        top: "15px",
+        right: "11px",
+        height: "1em",
+        width: "1em",
+        display: "block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m14.76 11.38a6.01 6.01 0 0 0 3.28-5.36 6.02 6.02 0 0 0 -12.04 0 6.01 6.01 0 0 0 3.27 5.35c-4.81 1.22-9.27 5.31-9.27 8.7 0 1.56 6.8 3.93 12 3.93 5.23 0 12-2.34 12-3.93 0-3.39-4.45-7.47-9.24-8.7zm-7.76-5.36a5.02 5.02 0 0 1 10.04 0c0 2.69-2.12 4.87-4.78 5-.09 0-.18-.01-.26-.01s-.16.01-.24.01c-2.65-.14-4.76-2.32-4.76-5zm15.9 14.09a3.8 3.8 0 0 1 -.64.44c-.62.36-1.5.75-2.52 1.1-2.41.83-5.18 1.35-7.74 1.35-2.55 0-5.32-.52-7.74-1.37-1.01-.35-1.9-.74-2.52-1.1-.47-.27-.74-.51-.74-.46 0-3.35 5.55-7.85 10.64-8.05.13.01.25.02.38.02.12 0 .24-.01.36-.02 5.09.22 10.62 4.71 10.62 8.05 0-.07-.02-.04-.1.04z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  passwordVisable: (
+    <svg
+      height="19"
+      viewBox="0 0 24 19"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-hidden="false"
+      aria-label="비밀번호 숨기기"
+      focusable="false"
+      style={{
+        position: "absolute",
+        top: "15px",
+        right: "11px",
+        height: "1em",
+        width: "1em",
+        display: "block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m12 18c-6.25 0-11-3.11-11-7s4.75-7 11-7 11 3.11 11 7-4.75 7-11 7zm8.41-12.78c-.96-.62-2.09-1.12-3.32-1.49l.61-2.37a.5.5 0 1 0 -.97-.25l-.61 2.36a18.02 18.02 0 0 0 -3.63-.46v-2.51a.5.5 0 0 0 -1 0v2.51a17.9 17.9 0 0 0 -3.73.48l-.62-2.38a.5.5 0 0 0 -.97.25l.62 2.4c-1.22.38-2.33.88-3.28 1.5l-1.04-1.49a.5.5 0 0 0 -.82.57l1.05 1.5c-1.69 1.36-2.71 3.14-2.71 5.15 0 4.63 5.37 8 12 8s12-3.37 12-8c0-2.04-1.04-3.83-2.77-5.2l1.02-1.46a.5.5 0 0 0 -.82-.57zm-11.41 5.78a3 3 0 1 1 6 0 3 3 0 0 1 -6 0zm-1 0a4 4 0 1 0 8 0 4 4 0 0 0 -8 0z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  passwordInvisable: (
+    <svg
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-hidden="false"
+      aria-label="비밀번호 표시하기"
+      focusable="false"
+      style={{
+        position: "absolute",
+        top: "15px",
+        right: "11px",
+        height: "1em",
+        width: "1em",
+        display: "block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m21.53 18.07c.15.22.46.28.69.13a.47.47 0 0 0 .14-.66l-1.32-1.9c1.86-1.33 2.97-3.11 2.97-5.17a.49.49 0 0 0 -.5-.48.49.49 0 0 0 -.5.48c0 3.82-4.73 6.7-11 6.7s-11-2.87-11-6.7a.49.49 0 0 0 -.5-.48.49.49 0 0 0 -.5.48c0 2.05 1.11 3.84 2.97 5.17l-1.32 1.9a.47.47 0 0 0 .14.66c.23.15.54.09.69-.13l1.32-1.9c.94.55 2.03.99 3.23 1.32a.29.29 0 0 0 -.01.04l-.58 2.23a.48.48 0 0 0 .36.58.5.5 0 0 0 .61-.35l.58-2.23.01-.04c1.1.23 2.28.37 3.51.4v2.4a.49.49 0 0 0 .5.48.49.49 0 0 0 .5-.48v-2.4a19.39 19.39 0 0 0 3.51-.4l.01.04.58 2.23a.5.5 0 0 0 .61.35.48.48 0 0 0 .36-.58l-.58-2.23-.01-.04c1.2-.33 2.29-.77 3.23-1.32z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  validationNotPassed: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "14px",
+        width: "14px",
+        display: "inline-block",
+        marginRight: "8px",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  validationPassed: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "14px",
+        width: "14px",
+        display: "block",
+        fill: "currentcolor",
+      }}
+    >
+      <path
+        d="m1.29 11.98c-.29-.3-.76-.31-1.06-.02s-.31.76-.02 1.06l6.75 7c .29.3.78.31 1.07.01l15.75-16c .29-.3.29-.77-.01-1.06s-.77-.29-1.06.01l-15.21 15.45z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  ),
+  loginValidationError: (
+    <svg
+      viewBox="0 0 24 24"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        height: "24px",
+        width: "24px",
+        display: "block",
+        fill: "rgb(255, 255, 255)",
+      }}
+    >
+      <path d="m23.49 20.79c.39.73.12 1.64-.61 2.03-.22.12-.46.18-.71.18h-20.33c-.83 0-1.5-.67-1.5-1.5 0-.25.06-.49.18-.71l10.16-18.94c.39-.73 1.3-1 2.03-.61.26.14.47.35.61.61zm-11.05-18.47c-.05-.09-.12-.16-.2-.2-.24-.13-.55-.04-.68.2l-10.16 18.94c-.04.07-.06.15-.06.24 0 .28.22.5.5.5h20.33c.08 0 .16-.02.24-.06.24-.13.33-.43.2-.68zm-.48 4.68c-.58.02-1.04.51-1.02 1.1l.29 7.42c.01.27.23.48.5.48h.54c.27 0 .49-.21.5-.48l.29-7.42c0-.01 0-.03 0-.04 0-.58-.47-1.06-1.06-1.06-.01 0-.03 0-.04 0zm-.96 12c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1z"></path>
     </svg>
   ),
 };

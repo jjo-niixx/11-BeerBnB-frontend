@@ -1,97 +1,75 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ProfileDetail from "./Components/ProfileDetail";
 import mixin from "../../Styles/mixin";
 import NavSvg from "./NavSvg";
 
-class Nav extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isBtnClicked: false,
-    };
-  }
+export default function Nav() {
+  const [profile, setProfile] = useState(false);
 
-  handleBtnClicked = () => {
-    const { isBtnClicked } = this.state;
-    this.setState({
-      isBtnClicked: !isBtnClicked,
-    });
-  };
-
-  render() {
-    const { isBtnClicked } = this.state;
-    return (
-      <NavContainer>
-        <header>
-          <Link to="/">{NavSvg.siteLogo}</Link>
-          <FormContainer>
-            <fieldset>
-              <label>숙소</label>
-              <label>체험</label>
-              <Link to="/">온라인 체험</Link>
-            </fieldset>
-          </FormContainer>
-          {window.scrollY >= 80 && (
-            <ReducedSearch>
-              <div className="searchTxt">검색 시작하기</div>
-              <SearchBtn width="32px" height="32px">
-                {NavSvg.searchBtnSmall}
-              </SearchBtn>
-            </ReducedSearch>
-          )}
-          <SiteExtra>
-            <div className="extraDetail">
-              <ExtraDetailBtn>호스트 되기</ExtraDetailBtn>
-              <ExtraDetailBtn>
-                {NavSvg.translation}
-                {NavSvg.translationArrow}
-              </ExtraDetailBtn>
-            </div>
-            <ProfileBtn onClick={this.handleBtnClicked}>
-              {NavSvg.profileBtnStroke}
-              {NavSvg.profileBtnPerson}
-            </ProfileBtn>
-            {isBtnClicked && (
-              <OnClickedSection>
-                <Link to="/">로그인</Link>
-                <Link to="/">회원가입</Link>
-                <Link to="/">숙소 호스트 되기</Link>
-                <Link to="/">체험 호스팅하기</Link>
-                <Link to="/">도움말</Link>
-              </OnClickedSection>
-            )}
-          </SiteExtra>
-        </header>
-        <RoomSearch>
-          <SearchItem>
-            <ItemTitle>위치</ItemTitle>
-            <input placeholder="어디로 여행가세요?"></input>
-          </SearchItem>
-          <ItemRightBorder />
-          <SearchItem>
-            <ItemTitle>체크인</ItemTitle>
-            <button>날짜 추가</button>
-          </SearchItem>
-          <ItemRightBorder />
-          <SearchItem>
-            <ItemTitle>체크아웃</ItemTitle>
-            <button>날짜 추가</button>
-          </SearchItem>
-          <ItemRightBorder />
-          <SearchItem>
-            <div>
-              <ItemTitle>인원</ItemTitle>
-              <button>게스트 추가</button>
-            </div>
-            <SearchBtn left="12px" width="48px" height="48px">
-              {NavSvg.searchBtnLarge}
+  return (
+    <NavContainer>
+      <header>
+        <Link to="/">{NavSvg.siteLogo}</Link>
+        <FormContainer>
+          <fieldset>
+            <label>숙소</label>
+            <label>체험</label>
+            <Link to="/">온라인 체험</Link>
+          </fieldset>
+        </FormContainer>
+        {window.scrollY >= 80 && (
+          <ReducedSearch>
+            <div className="searchTxt">검색 시작하기</div>
+            <SearchBtn width="32px" height="32px">
+              {NavSvg.searchBtnSmall}
             </SearchBtn>
-          </SearchItem>
-        </RoomSearch>
-      </NavContainer>
-    );
-  }
+          </ReducedSearch>
+        )}
+        <SiteExtra>
+          <div className="extraDetail">
+            <ExtraBtn>호스트 되기</ExtraBtn>
+            <ExtraBtn>
+              {NavSvg.translation}
+              {NavSvg.translationArrow}
+            </ExtraBtn>
+          </div>
+          <ProfileBtn onClick={() => setProfile(!profile)}>
+            {NavSvg.PoppedProfileBtnStroke}
+            {NavSvg.PoppedProfileBtnPerson}
+          </ProfileBtn>
+          {profile && <ProfileDetail />}
+        </SiteExtra>
+      </header>
+      <RoomSearch>
+        <SearchItem>
+          <ItemTitle>위치</ItemTitle>
+          <input placeholder="어디로 여행가세요?"></input>
+        </SearchItem>
+        <ItemRightBorder />
+        <SearchItem>
+          <ItemTitle>체크인</ItemTitle>
+          <button>날짜 추가</button>
+        </SearchItem>
+        <ItemRightBorder />
+        <SearchItem>
+          <ItemTitle>체크아웃</ItemTitle>
+          <button>날짜 추가</button>
+        </SearchItem>
+        <ItemRightBorder />
+        <SearchItem>
+          <div>
+            <ItemTitle>인원</ItemTitle>
+            <button>게스트 추가</button>
+          </div>
+          <SearchBtn left="12px" width="48px" height="48px">
+            {NavSvg.searchBtnLarge}
+          </SearchBtn>
+        </SearchItem>
+      </RoomSearch>
+    </NavContainer>
+  );
 }
 
 const NavContainer = styled.div`
@@ -100,6 +78,7 @@ const NavContainer = styled.div`
   width: 100%;
   height: 150px;
   padding: 0 80px;
+  background-color: ${({ theme }) => theme.backgroundColorWhite};
 
   header {
     display: flex;
@@ -124,7 +103,7 @@ const SiteExtra = styled.div`
   }
 `;
 
-const ExtraDetailBtn = styled.button`
+const ExtraBtn = styled.button`
   display: flex;
   align-items: center;
   padding: 12px;
@@ -214,26 +193,6 @@ const ItemTitle = styled.div`
   padding-bottom: 2px;
 `;
 
-const OnClickedSection = styled.div`
-  position: absolute;
-  top: 46px;
-  min-width: 240px;
-  max-height: calc(100vh-100px);
-  margin-top: 34px;
-  padding: 8px 0;
-  border: ${({ theme }) => theme.borderSet};
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.2s ease;
-  background-color: ${({ theme }) => theme.backgroundColorWhite};
-  z-index: 2;
-
-  a {
-    display: block;
-    padding: 12px;
-  }
-`;
-
 const ReducedSearch = styled.button`
   ${mixin.flexSet("row", "space-between")}
   position: absolute;
@@ -260,5 +219,3 @@ const SearchBtn = styled.button`
   border-radius: 50%;
   background-color: ${({ theme }) => theme.pinkColor};
 `;
-
-export default Nav;
