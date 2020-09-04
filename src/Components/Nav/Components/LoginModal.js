@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import mixin from "../../../Styles/mixin";
-import NavSvg from "../NavSvg";
+import { useHistory } from "react-router";
 import {
   ModalContainer,
   ModalWrapper,
@@ -9,25 +8,62 @@ import {
   ModalContent,
   FullWideBtn,
   OrBorder,
+  InfoSection,
+  InfoInput,
   ExtraAction,
   ExtraSection,
 } from "./ReusableStyle";
+import { signInAPI } from "../../../config";
+import mixin from "../../../Styles/mixin";
+import NavSvg from "../NavSvg";
 
-export default function LoginModal({ handleClose }) {
+export default function LoginModal({ toggleLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLoginBtn = (e) => {
-    console.log("checked");
+  const history = useHistory();
+
+  const toggleLoginBtn = (e) => {
+    var exptext = /^[A-Za-z0-9_]+@[A-Za-z0-9]+\.[A-Za-z0-9]+/;
+    if (!email) return alert("이메일이 필요합니다.");
+    else if (!exptext.test(email)) return alert("이메일을 입력하세요.");
+    else if (!password) return alert("비밀번호를 입력하세요.");
+    else if (password.length < 8)
+      return alert(
+        "비밀번호는 최소 8자 이상이어야 합니다. 다시 시도해 주세요."
+      );
+
+    if (exptext.test(email) && password.length >= 8) {
+      fetch(`${signInAPI}/user/signin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.access_token) {
+            alert("로그인에 성공했습니다.");
+            sessionStorage.setItem("access_token", res.access_token);
+            history.push("/");
+          } else {
+            alert("이메일 및 비밀번호를 확인하세요.");
+          }
+        });
+    }
   };
 
   return (
     <ModalContainer>
       <ModalWrapper>
         <ModalHeader>
-          <div onClick={handleClose}>{NavSvg.modalClose}</div>
+          <div onClick={toggleLogin}>{NavSvg.modalClose}</div>
           로그인
-          <div></div>
+          <div />
         </ModalHeader>
         <ModalContent>
           <FullWideBtn
@@ -50,7 +86,7 @@ export default function LoginModal({ handleClose }) {
           <OrBorder>
             <span>또는</span>
           </OrBorder>
-          <InfoSection>
+          <InfoSection onSubmit={(e) => e.preventDefault()}>
             <ErrorBox>
               <div>{NavSvg.loginValidationError}</div>
               <span>
@@ -62,23 +98,19 @@ export default function LoginModal({ handleClose }) {
               <InfoInput
                 onChange={(e) => setEmail(e.target.value)}
                 type="text"
+                name="email"
                 placeholder="이메일 주소"
               ></InfoInput>
               {NavSvg.emailInput}
-              {!email.includes("@") && (
-                <ErrorTxt>이메일을 입력하세요.</ErrorTxt>
-              )}
             </div>
             <div>
               <InfoInput
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
+                name="password"
                 placeholder="비밀번호"
               ></InfoInput>
               {NavSvg.password}
-              {password.length < 8 && (
-                <ErrorTxt>비밀번호는 최소 8자 이상이어야 합니다.</ErrorTxt>
-              )}
             </div>
             <ExtraAction display="block" marginLeft="auto">
               비밀번호 보기
@@ -87,14 +119,15 @@ export default function LoginModal({ handleClose }) {
               <ExtraAction>전화번호로 로그인</ExtraAction>&nbsp;·&nbsp;
               <ExtraAction>비밀번호를 잊으셨나요?</ExtraAction>
             </div>
-            <FullWideBtn
-              onClick={handleLoginBtn}
-              borderColor="#FF5A5F"
-              background="#FF5A5F"
-              color="rgb(255, 255, 255)"
-            >
-              로그인
-            </FullWideBtn>
+            <div onClick={toggleLoginBtn}>
+              <FullWideBtn
+                borderColor="#FF5A5F"
+                background="#FF5A5F"
+                color="rgb(255, 255, 255)"
+              >
+                로그인
+              </FullWideBtn>
+            </div>
           </InfoSection>
           <ExtraSection>
             <span>에어비앤비 계정이 없으세요?</span>
@@ -109,14 +142,6 @@ export default function LoginModal({ handleClose }) {
     </ModalContainer>
   );
 }
-
-const InfoSection = styled.form`
-  width: 100%;
-
-  div {
-    position: relative;
-  }
-`;
 
 const ErrorBox = styled.div`
   display: flex;
@@ -142,28 +167,6 @@ const ErrorBox = styled.div`
     border-radius: 0px 8px 8px 0px;
     border-color: rgb(235, 235, 235);
     font-size: 14px;
-  }
-`;
-
-const ErrorTxt = styled.div`
-  margin-top: -8px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  color: #d93900;
-`;
-
-const InfoInput = styled.input`
-  display: inline-block;
-  width: ${({ width }) => (width ? width : "100%")};
-  margin-bottom: 16px;
-  padding: 11px;
-  line-height: 24px;
-  font-size: 16px;
-  border: 1px solid #ebebeb;
-  border-radius: 4px;
-
-  &:focus {
-    border: 1px solid #008489;
   }
 `;
 

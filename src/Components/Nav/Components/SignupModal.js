@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import mixin from "../../../Styles/mixin";
-import NavSvg from "../NavSvg";
+import React, { useState } from "react";
+import SignupModalEmail from "./SignupModalEmail";
 import {
   ModalContainer,
   ModalWrapper,
@@ -12,15 +10,22 @@ import {
   ExtraAction,
   ExtraSection,
 } from "./ReusableStyle";
+import NavSvg from "../NavSvg";
 
-export default function SignupModal({ handleClose }) {
+export default function SignupModal({ toggleSignup }) {
+  const [isSignupEmailActive, setIsSignupEmailActive] = useState(false);
+
+  const handleSignupEmail = () => {
+    setIsSignupEmailActive(!isSignupEmailActive);
+  };
+
   return (
     <ModalContainer>
       <ModalWrapper>
         <ModalHeader>
-          <div>{NavSvg.modalClose}</div>
+          <div onClick={toggleSignup}>{NavSvg.modalClose}</div>
           회원가입
-          <div></div>
+          <div />
         </ModalHeader>
         <ModalContent>
           <FullWideBtn
@@ -43,10 +48,15 @@ export default function SignupModal({ handleClose }) {
           <OrBorder>
             <span>또는</span>
           </OrBorder>
-          <FullWideBtn background="#FF5A5F" color="rgb(255, 255, 255)">
-            {NavSvg.email}
-            이메일로 회원 가입
-          </FullWideBtn>
+          <div onClick={handleSignupEmail}>
+            <FullWideBtn background="#FF5A5F" color="rgb(255, 255, 255)">
+              {NavSvg.email}
+              이메일로 회원 가입
+            </FullWideBtn>
+          </div>
+          {isSignupEmailActive && (
+            <SignupModalEmail handleSignupEmail={handleSignupEmail} />
+          )}
           <ExtraSection>
             <span>이미 에어비앤비 계정이 있나요?</span>
             <ExtraAction>로그인</ExtraAction>

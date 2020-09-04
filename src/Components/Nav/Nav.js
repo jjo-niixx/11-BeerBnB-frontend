@@ -8,62 +8,68 @@ import NavSvg from "./NavSvg";
 export default function Nav() {
   const [profile, setProfile] = useState(false);
 
+  const toggleProfile = () => {
+    setProfile(!profile);
+  };
+
   return (
     <NavContainer>
-      <header>
+      <NavHeader>
         <Link to="/">{NavSvg.siteLogo}</Link>
         <FormContainer>
-          <fieldset>
+          <Link to="/productlist">
             <label>숙소</label>
+          </Link>
+          <Link to="/">
             <label>체험</label>
-            <Link to="/">온라인 체험</Link>
-          </fieldset>
+          </Link>
+          <Link to="/">
+            <label>온라인 체험</label>
+          </Link>
         </FormContainer>
-        {window.scrollY >= 80 && (
-          <ReducedSearch>
-            <div className="searchTxt">검색 시작하기</div>
-            <SearchBtn width="32px" height="32px">
-              {NavSvg.searchBtnSmall}
-            </SearchBtn>
-          </ReducedSearch>
-        )}
+        <ReducedSearch>
+          <SearchTxt>검색 시작하기</SearchTxt>
+          <SearchBtn width="32px" height="32px" right="8px">
+            {NavSvg.searchBtnSmall}
+          </SearchBtn>
+        </ReducedSearch>
         <SiteExtra>
-          <div className="extraDetail">
+          <ExtraDetail>
             <ExtraBtn>호스트 되기</ExtraBtn>
             <ExtraBtn>
               {NavSvg.translation}
               {NavSvg.translationArrow}
             </ExtraBtn>
-          </div>
-          <ProfileBtn onClick={() => setProfile(!profile)}>
+          </ExtraDetail>
+          <ProfileBtn onClick={toggleProfile}>
             {NavSvg.PoppedProfileBtnStroke}
             {NavSvg.PoppedProfileBtnPerson}
           </ProfileBtn>
           {profile && <ProfileDetail />}
         </SiteExtra>
-      </header>
+      </NavHeader>
       <RoomSearch>
         <SearchItem>
           <ItemTitle>위치</ItemTitle>
-          <input placeholder="어디로 여행가세요?"></input>
+          <ItemInput placeholder="어디로 여행가세요?" />
         </SearchItem>
         <ItemRightBorder />
         <SearchItem>
           <ItemTitle>체크인</ItemTitle>
-          <button>날짜 추가</button>
+          <ItemBtn>날짜 추가</ItemBtn>
         </SearchItem>
         <ItemRightBorder />
         <SearchItem>
           <ItemTitle>체크아웃</ItemTitle>
-          <button>날짜 추가</button>
+          <ItemBtn>날짜 추가</ItemBtn>
         </SearchItem>
         <ItemRightBorder />
         <SearchItem>
           <div>
             <ItemTitle>인원</ItemTitle>
-            <button>게스트 추가</button>
+            <ItemBtn>게스트 추가</ItemBtn>
           </div>
-          <SearchBtn left="12px" width="48px" height="48px">
+          <SearchBtn top="7px" right="12px" width="48px" height="48px">
             {NavSvg.searchBtnLarge}
           </SearchBtn>
         </SearchItem>
@@ -79,28 +85,28 @@ const NavContainer = styled.div`
   height: 150px;
   padding: 0 80px;
   background-color: ${({ theme }) => theme.backgroundColorWhite};
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-  }
+  z-index: 50;
 
   a {
     color: ${({ theme }) => theme.fontColorBlack};
   }
 `;
 
+const NavHeader = styled.header`
+  ${mixin.flexSet("row", "space-between")};
+  position: relative;
+  height: 80px;
+`;
+
 const SiteExtra = styled.div`
   display: flex;
   align-items: center;
+`;
 
-  .extraDetail {
-    display: flex;
-    align-items: center;
-    margin-right: 8px;
-  }
+const ExtraDetail = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
 `;
 
 const ExtraBtn = styled.button`
@@ -131,9 +137,8 @@ const ProfileBtn = styled.button`
 
 const FormContainer = styled.form`
   display: flex;
-  max-width: 850px;
-  margin: 0 auto;
-
+  position: relative;
+  left: 50px;
   label {
     padding: 10px 16px;
   }
@@ -144,7 +149,7 @@ const FormContainer = styled.form`
 `;
 
 const RoomSearch = styled.div`
-  ${mixin.flexSet("row", "space-around")}
+  ${mixin.flexSet("row", "space-around")};
   max-width: 850px;
   height: 66px;
   margin: 0 auto;
@@ -152,32 +157,33 @@ const RoomSearch = styled.div`
   border-radius: 32px;
 `;
 
-const SearchItem = styled.button`
+const SearchItem = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   padding: 14px 24px;
   text-align: left;
 
-  input {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-  }
-
-  button {
-    padding: 0;
-    color: ${({ theme }) => theme.fontColorGray};
-    text-align: left;
-  }
-
   &:nth-of-type(4) {
-    ${mixin.flexSet("row", "space-between")}
+    ${mixin.flexSet("row", "space-between")};
   }
 
   &:hover {
     border-radius: 32px;
     background-color: rgb(239, 239, 239);
   }
+`;
+
+const ItemInput = styled.input`
+  padding: 0;
+  border: none;
+  background-color: transparent;
+`;
+
+const ItemBtn = styled.button`
+  padding: 0;
+  color: ${({ theme }) => theme.fontColorGray};
+  text-align: left;
 `;
 
 const ItemRightBorder = styled.div`
@@ -195,6 +201,7 @@ const ItemTitle = styled.div`
 
 const ReducedSearch = styled.button`
   ${mixin.flexSet("row", "space-between")}
+  display: none;
   position: absolute;
   top: 20px;
   right: 0;
@@ -205,15 +212,16 @@ const ReducedSearch = styled.button`
   border: ${({ theme }) => theme.borderSet};
   border-radius: 32px;
   background-color: ${({ theme }) => theme.backgroundColorWhite};
+`;
 
-  .searchTxt {
-    padding: 0 16px;
-  }
+const SearchTxt = styled.div`
+  padding: 0 16px;
 `;
 
 const SearchBtn = styled.button`
-  position: relative;
-  left: ${({ left }) => left};
+  position: absolute;
+  top: ${({ top }) => top};
+  right: ${({ right }) => right};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   border-radius: 50%;

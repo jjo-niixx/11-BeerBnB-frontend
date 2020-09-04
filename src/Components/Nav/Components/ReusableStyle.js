@@ -35,7 +35,7 @@ export const ModalContent = styled.div`
 `;
 
 export const FullWideBtn = styled.button`
-  ${mixin.flexSet}
+  ${mixin.flexSet};
   width: 100%;
   margin-bottom: ${({ margin }) => margin};
   padding: 10px 22px;
@@ -78,13 +78,14 @@ export const OrBorder = styled.div`
     }
   }
 `;
-export const InfoSection = styled.form`
+export const InfoSection = styled.div`
   width: 100%;
 
   div {
     position: relative;
   }
 `;
+
 export const InfoInput = styled.input`
   display: inline-block;
   width: 100%;
@@ -94,16 +95,17 @@ export const InfoInput = styled.input`
   font-size: 16px;
   border: 1px solid #ebebeb;
   border-radius: 4px;
+  background-color: ${({ error }) => (error ? "#FFF8F6" : "#ffffff")};
 
   &:focus {
-    border: 1px solid #008489;
+    border: 1px solid ${({ error }) => (error ? "#FC642D" : "#008489")};
   }
 `;
 
 export const ExtraAction = styled.button`
   display: ${({ display }) => display};
   margin-left: ${({ marginLeft }) => marginLeft};
-  margin-bottom: ${(props) => (props.noMargin ? "0" : "16px")};
+  margin-bottom: ${({ noMargin }) => (noMargin ? "0" : "16px")};
   font-size: inherit;
   color: #008489;
 `;
