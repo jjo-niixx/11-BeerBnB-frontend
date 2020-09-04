@@ -5,27 +5,32 @@ import theme from "../../../../../../Styles/Theme";
 
 export default function FilterModal({
   filterInfo,
-  isItemChecked,
-  isItemFocused,
-  onCheckItem,
-  onFocusItem,
+  isRefundPolicyChedcked,
+  onCheckRefundPolicy,
+  checkedRoomTypeList,
+  roomTypeFilterHandler,
+  unCheckHandler,
+  activeCleanBtnList,
 }) {
-  const { HeaderModal, isClearBtnOn } = filterInfo;
+  const { HeaderModal, isClearBtnOn, title, id } = filterInfo;
+  const isOwnTitle = activeCleanBtnList.includes(id);
 
   return (
     <ModalContainer onClick={(e) => e.stopPropagation()}>
       <HeaderBox>
         <HeaderModal
-          onCheckItem={onCheckItem}
-          onFocusItem={onFocusItem}
-          isItemChecked={isItemChecked}
-          isItemFocused={isItemFocused}
+          onCheckRefundPolicy={onCheckRefundPolicy}
+          isRefundPolicyChedcked={isRefundPolicyChedcked}
+          checkedRoomTypeList={checkedRoomTypeList}
+          roomTypeFilterHandler={roomTypeFilterHandler}
         />
       </HeaderBox>
       <ModalBottom
-        checkHandler={onCheckItem}
-        isItemChecked={isItemChecked}
+        title={title}
+        unCheckHandler={unCheckHandler}
+        isRefundPolicyChedcked={isRefundPolicyChedcked}
         isClearBtnOn={isClearBtnOn}
+        isOwnTitle={isOwnTitle}
       />
     </ModalContainer>
   );
@@ -33,7 +38,8 @@ export default function FilterModal({
 
 const ModalContainer = styled.div`
   position: absolute;
-  width: 360px;
+  z-index: 100;
+  min-width: 250px;
   border: ${theme.borderSet};
   border-radius: 10px;
   background-color: white;

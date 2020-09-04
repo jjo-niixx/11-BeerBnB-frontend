@@ -1,20 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import MainItemImgSlide from "./MainItemImgSlide/MainItemImgSlide";
 import ProductListSvg from "../../../ProductListSvg/ProductListSvg";
 import { BtnSvgContainer } from "./MainItemImgSlide/ImgSlideMoveBtn/ImgSlideMoveBtn";
 
-export default class MainContentsItems extends Component {
-  render() {
-    return (
+export default function MainContentsItems({ roomsInfo }) {
+  const { image_url, price, address, title } = roomsInfo;
+
+  return (
+    <Link to="/ProductDetail">
       <ItemsContainer>
         <ItemsWrapper>
-          <MainItemImgSlide />
+          <MainItemImgSlide image_url={image_url} />
           <ItemInfo>
             <InfoHeader>
               <div>
-                <InfoSubTitle>인사동의 호텔 객실</InfoSubTitle>
-                <InfoTitle>빙고호스텔 인사동점 - 101</InfoTitle>
+                <InfoSubTitle>{address}</InfoSubTitle>
+                <InfoTitle>{title}</InfoTitle>
               </div>
               <span>{ProductListSvg.normalHeart}</span>
             </InfoHeader>
@@ -34,16 +37,18 @@ export default class MainContentsItems extends Component {
               </ReviewNum>
               <ProductItemPrice>
                 <div>
-                  <OneDayPrice>₩19,277</OneDayPrice>/1박
+                  <OneDayPrice>₩{(price * 1).toLocaleString()}</OneDayPrice>/1박
                 </div>
-                <TotalPrice>총 요금: ₩269,877</TotalPrice>
+                <TotalPrice>
+                  총 요금: ₩{(price * 3).toLocaleString()}
+                </TotalPrice>
               </ProductItemPrice>
             </InfoPrice>
           </ItemInfo>
         </ItemsWrapper>
       </ItemsContainer>
-    );
-  }
+    </Link>
+  );
 }
 
 const ItemsContainer = styled.div`

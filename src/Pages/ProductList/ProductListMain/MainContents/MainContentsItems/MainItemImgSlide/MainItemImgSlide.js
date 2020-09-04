@@ -5,15 +5,15 @@ import btnSvg from "../../../../ProductListSvg/ProductListSvg";
 import CarouselSlide from "./CarouselSlide/CarouselSlide";
 import mixin from "../../../../../../Styles/mixin";
 
-export default function MainItemImgSlide() {
-  const [activeImg, setActiveImg] = useState(IMG_URL.length);
+export default function MainItemImgSlide({ image_url }) {
+  const [activeImg, setActiveImg] = useState(image_url.length);
   const [activeCircle, setActiveCircle] = useState(0);
   const [isAnimationEnd, setIsAnimationEnd] = useState(false);
   const [animationOn, setAnimationOn] = useState(true);
-  const newImg = [...IMG_URL, ...IMG_URL, ...IMG_URL];
+  const newImg = [...image_url, ...image_url, ...image_url];
 
   useEffect(() => {
-    const cardNum = IMG_URL.length;
+    const cardNum = image_url.length;
     const newCardNum = newImg.length;
 
     if (!animationOn) {
@@ -27,18 +27,18 @@ export default function MainItemImgSlide() {
     }
     if (activeImg === newCardNum - 2)
       setTimeout(() => setIsAnimationEnd(true), 200);
-  }, [activeImg, animationOn, newImg]);
+  }, [activeImg, animationOn, image_url, newImg]);
 
   useEffect(() => {
     isAnimationEnd ? setAnimationOn(false) : setAnimationOn(true);
   }, [isAnimationEnd]);
 
   useEffect(() => {
-    const cardNum = IMG_URL.length;
+    const cardNum = image_url.length;
 
     if (activeCircle <= -1) setActiveCircle(cardNum - 1);
     if (activeCircle >= cardNum) setActiveCircle(0);
-  }, [activeCircle]);
+  }, [activeCircle, image_url]);
 
   const gotoImgHandler = (idx) => {
     setActiveImg(activeImg + idx);
@@ -66,7 +66,7 @@ export default function MainItemImgSlide() {
         );
       })}
       <CircleWrapper>
-        {IMG_URL.map((el, idx) => {
+        {image_url.map((el, idx) => {
           const isPushed = activeCircle === idx;
           return <Circle key={el} isPushed={isPushed} />;
         })}
@@ -74,14 +74,6 @@ export default function MainItemImgSlide() {
     </ImgSlideContainer>
   );
 }
-
-const IMG_URL = [
-  "/images/ProductList/leftBig.webp",
-  "/images/ProductList/right1.webp",
-  "/images/ProductList/right2.webp",
-  "/images/ProductList/right3.webp",
-  "/images/ProductList/right4.webp",
-];
 
 const BTN_DATA = [
   {

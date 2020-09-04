@@ -44,28 +44,32 @@ const HeaderOptionContainer = styled.div`
 
 const FILTER_INFO_LIST = [
   {
+    id: "refundPolicy",
     title: "유연한 환불 정책",
     type: "MODAL",
     HeaderModal: RefundPolicyModal,
     isClearBtnOn: true,
   },
   {
+    id: "roomType",
     title: "숙소 유형",
     type: "MODAL",
     HeaderModal: RoomsTypeModal,
     isClearBtnOn: true,
   },
   {
+    id: "payMent",
     title: "요금",
     type: "MODAL",
     HeaderModal: PaymentModal,
     isClearBtnOn: true,
   },
   {
+    id: "bedRoom",
     title: "침실과 침대",
     type: "MODAL",
     HeaderModal: BedroomModal,
     isClearBtnOn: false,
   },
-  { title: "필터 추가하기", type: "POPUP" },
+  { id: "addFilter", title: "필터 추가하기", type: "POPUP" },
 ];
