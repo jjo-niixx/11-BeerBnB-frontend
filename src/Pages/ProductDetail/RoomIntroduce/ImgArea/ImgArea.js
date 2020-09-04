@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 function ImgArea({ imgUrl }) {
-  const [firstImg, ...restImg] = imgUrl;
+  const [firstImg, ...restImg] = imgUrl || [];
   return (
     <ImgAreaContainer>
       <HalfSizeImg alt="room preview" src={firstImg} />

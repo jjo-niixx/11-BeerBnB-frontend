@@ -4,18 +4,17 @@ import InteractionBtn from "./InteractionBtn";
 import mixin from "../../../../Styles/mixin";
 import Svg from "../../SVG/ProductDetailSvg";
 
-function SubTitle({ location, btnName }) {
+function SubTitle({ address }) {
   const { rightArrow } = Svg;
-
   return (
     <SubTitleContainer>
       <Location>
-        <span>{location}</span>
+        <span>{address}</span>
         <SvgWrapper>{rightArrow}</SvgWrapper>
         <span>숙소</span>
       </Location>
       <InteractionArea>
-        {btnName.map((el) => (
+        {BTN_NAME.map((el) => (
           <InteractionBtn btnName={el} key={el} />
         ))}
       </InteractionArea>
@@ -51,3 +50,5 @@ const InteractionArea = styled.div`
   ${mixin.flexSet()}
   height: 100%;
 `;
+
+const BTN_NAME = ["공유하기", "저장"];

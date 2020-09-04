@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Title from "../RoomInfoComponent/Title";
 import mixin from "../../../../Styles/mixin";
 
-function InformationHeader({
-  headerData: { titleData, subtitleData, avatarUrl },
-}) {
+function InformationHeader({ title, subTitle }) {
   return (
     <InformationHeaderContainer>
       <TitleWrapper>
-        <Title>{titleData}</Title>
+        <Title title={title} />
         <SubTitle>
-          {subtitleData.map((el) => (
-            <div key={el}>
+          {subTitle.map((el, idx) => (
+            <div key={idx}>
               <span>{el}</span>
               <Dot>·</Dot>
             </div>
@@ -19,7 +18,7 @@ function InformationHeader({
         </SubTitle>
       </TitleWrapper>
       <picture>
-        <Avatar alt="avatar of host" src={avatarUrl} />
+        <Avatar alt="avatar of host" src={AVATAR_URL} />
       </picture>
     </InformationHeaderContainer>
   );
@@ -36,11 +35,6 @@ const InformationHeaderContainer = styled.div`
 const TitleWrapper = styled.div`
   ${mixin.flexSet("column", "space-between", "flex-start")}
   height: 56px;
-`;
-
-const Title = styled.h2`
-  font-size: 22px;
-  font-weight: 600;
 `;
 
 const Dot = styled.span`
@@ -65,3 +59,6 @@ const Avatar = styled.img`
   object-fit: cover;
   border-radius: 50%;
 `;
+
+const AVATAR_URL = "/images/ProductDetail/wecodeimg.png";
+// 호스트 개인 정보라서 크롤링하기 제한되어서 위코드 아바타로 대체

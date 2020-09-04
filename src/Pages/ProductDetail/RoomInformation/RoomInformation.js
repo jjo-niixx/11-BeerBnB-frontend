@@ -2,14 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import InformationHeader from "./InformationHeader/InformationHeader";
 import RoomCondition from "./RoomCondition/RoomCondition";
+import BedType from "./BedType/BedType";
+import Description from "./Description/Description";
 
-export default function RoomInformation({ roomInfo }) {
-  const { headerData, roomConditionData } = roomInfo;
+export default function RoomInformation({
+  title,
+  subTitle,
+  tagTitle,
+  tagDetail,
+  bedRoom,
+  bedType,
+  description,
+}) {
   return (
     <RoomInformationContainer>
       <InformationContainer>
-        <InformationHeader headerData={headerData} />
-        <RoomCondition roomConditionData={roomConditionData} />
+        <InformationHeader title={title} subTitle={subTitle} />
+        <RoomCondition tagTitle={tagTitle} tagDetail={tagDetail} />
+        <Description description={description} />
+        <BedType bedRoom={bedRoom} bedType={bedType} />
       </InformationContainer>
       <Reservation></Reservation>
     </RoomInformationContainer>
