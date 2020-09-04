@@ -2,34 +2,43 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FilterModal from "./FilterModal/FilterModal";
 
-export default function FilterToggle({ filterInfo, active, onClick }) {
-  const [isRefundPolicyChedcked, setIsRefundPolicyChedcked] = useState(false);
+export default function FilterToggle({
+  filterInfo,
+  active,
+  index,
+  onClick,
+  updateCheckedList,
+  checkedOptions,
+  onFilterClick,
+}) {
+  const [isRefundChecked, setIsRefundChecked] = useState(false);
   const [checkedRoomTypeList, setCheckedRoomTypeList] = useState([]);
   const [activeCleanBtnList, setActiveCleanBtnList] = useState([]);
   const { title, type } = filterInfo;
 
   useEffect(() => {
-    const isOwnRefundPolicy = activeCleanBtnList.includes("refundPolicy");
+    const isOwnRefund = activeCleanBtnList.includes("refundPolicy");
 
-    if (isRefundPolicyChedcked && !isOwnRefundPolicy) {
+    if (isRefundChecked && !isOwnRefund) {
       setActiveCleanBtnList([...activeCleanBtnList, "refundPolicy"]);
     }
-    if (!isRefundPolicyChedcked && isOwnRefundPolicy) {
+    if (!isRefundChecked && isOwnRefund) {
       const newList = activeCleanBtnList.filter(
         (acitvebtn) => acitvebtn !== "refundPolicy"
       );
 
       setActiveCleanBtnList(newList);
     }
-  }, [isRefundPolicyChedcked, activeCleanBtnList]);
+  }, [isRefundChecked, activeCleanBtnList]);
 
   useEffect(() => {
     const isOwnRoomType = activeCleanBtnList.includes("roomType");
+    const listLen = checkedRoomTypeList.length;
 
-    if (checkedRoomTypeList.length > 0 && !isOwnRoomType) {
+    if (listLen > 0 && !isOwnRoomType) {
       setActiveCleanBtnList([...activeCleanBtnList, "roomType"]);
     }
-    if (checkedRoomTypeList.length === 0 && isOwnRoomType) {
+    if (listLen === 0 && isOwnRoomType) {
       const newList = activeCleanBtnList.filter(
         (acitvebtn) => acitvebtn !== "roomType"
       );
@@ -39,29 +48,45 @@ export default function FilterToggle({ filterInfo, active, onClick }) {
   }, [checkedRoomTypeList, activeCleanBtnList]);
 
   const onCheckRefundPolicy = () => {
-    setIsRefundPolicyChedcked(!isRefundPolicyChedcked);
+    setIsRefundChecked(!isRefundChecked);
   };
 
   const roomTypeFilterHandler = (id) => {
-    const idIndex = checkedRoomTypeList.indexOf(id);
+    const isOwnId = checkedRoomTypeList.includes(id);
 
-    if (idIndex === -1) {
-      setCheckedRoomTypeList([...checkedRoomTypeList, id]);
-    } else {
-      const checkedList = [...checkedRoomTypeList];
-      checkedList.splice(idIndex, 1);
-
-      setCheckedRoomTypeList(checkedList);
-    }
+    setCheckedRoomTypeList(
+      isOwnId
+        ? checkedRoomTypeList.filter((checked) => checked !== id)
+        : [...checkedRoomTypeList, id]
+    );
   };
 
   const unCheckHandler = (name) => {
     switch (name) {
       case "유연한 환불 정책":
-        setIsRefundPolicyChedcked(!isRefundPolicyChedcked);
+        setIsRefundChecked(!isRefundChecked);
         break;
       case "숙소 유형":
         setCheckedRoomTypeList([]);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const saveCheckedList = (name) => {
+    switch (name) {
+      case "유연한 환불 정책":
+        updateCheckedList({
+          ...checkedOptions,
+          refund: isRefundChecked ? "on" : "",
+        });
+        break;
+      case "숙소 유형":
+        updateCheckedList({
+          ...checkedOptions,
+          home_type: checkedRoomTypeList,
+        });
         break;
       default:
         break;
@@ -77,13 +102,16 @@ export default function FilterToggle({ filterInfo, active, onClick }) {
         <ModalWrapper>
           {active && (
             <FilterModal
+              index={index}
               filterInfo={filterInfo}
-              isRefundPolicyChedcked={isRefundPolicyChedcked}
+              isRefundChecked={isRefundChecked}
               checkedRoomTypeList={checkedRoomTypeList}
               activeCleanBtnList={activeCleanBtnList}
               onCheckRefundPolicy={onCheckRefundPolicy}
               unCheckHandler={unCheckHandler}
               roomTypeFilterHandler={roomTypeFilterHandler}
+              saveCheckedList={saveCheckedList}
+              onFilterClick={onFilterClick}
             />
           )}
         </ModalWrapper>

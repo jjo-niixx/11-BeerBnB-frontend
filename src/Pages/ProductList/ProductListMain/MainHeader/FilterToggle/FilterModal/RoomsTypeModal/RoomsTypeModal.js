@@ -31,18 +31,18 @@ export default function RoomsTypeModal({
 
 const ROOMS_TYPE_LIST = [
   {
-    id: "entireHouse",
+    id: "entire_house",
     roomsType: "집 전체",
     description: "집 전체를 단독으로 사용합니다",
   },
   {
-    id: "privateRoom",
+    id: "private_room",
     roomsType: "개인실",
     description:
       "침실은 단독으로 쓰고, 이외의 공간은 호스트나 다른 게스트와 함께 이용할 수도 있습니다.",
   },
   {
-    id: "hotelRoom",
+    id: "guest_room",
     roomsType: "호텔 객실",
     description: "부티크 호텔, 호스텔 등의 개인실이나 다인실을 이용합니다",
   },

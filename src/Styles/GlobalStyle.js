@@ -12,10 +12,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     font-family: ‘Roboto’, sans-serif;
   }

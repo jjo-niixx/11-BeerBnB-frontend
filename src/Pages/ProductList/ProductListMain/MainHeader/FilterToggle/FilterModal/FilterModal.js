@@ -5,12 +5,15 @@ import theme from "../../../../../../Styles/Theme";
 
 export default function FilterModal({
   filterInfo,
-  isRefundPolicyChedcked,
+  index,
+  isRefundChecked,
   onCheckRefundPolicy,
   checkedRoomTypeList,
   roomTypeFilterHandler,
   unCheckHandler,
   activeCleanBtnList,
+  saveCheckedList,
+  onFilterClick,
 }) {
   const { HeaderModal, isClearBtnOn, title, id } = filterInfo;
   const isOwnTitle = activeCleanBtnList.includes(id);
@@ -20,17 +23,20 @@ export default function FilterModal({
       <HeaderBox>
         <HeaderModal
           onCheckRefundPolicy={onCheckRefundPolicy}
-          isRefundPolicyChedcked={isRefundPolicyChedcked}
+          isRefundChecked={isRefundChecked}
           checkedRoomTypeList={checkedRoomTypeList}
           roomTypeFilterHandler={roomTypeFilterHandler}
         />
       </HeaderBox>
       <ModalBottom
         title={title}
+        index={index}
         unCheckHandler={unCheckHandler}
-        isRefundPolicyChedcked={isRefundPolicyChedcked}
+        isRefundChecked={isRefundChecked}
         isClearBtnOn={isClearBtnOn}
         isOwnTitle={isOwnTitle}
+        saveCheckedList={saveCheckedList}
+        onFilterClick={onFilterClick}
       />
     </ModalContainer>
   );

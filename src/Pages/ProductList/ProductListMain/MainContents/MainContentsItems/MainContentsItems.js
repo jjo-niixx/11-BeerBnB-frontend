@@ -9,11 +9,11 @@ export default function MainContentsItems({ roomsInfo }) {
   const { image_url, price, address, title } = roomsInfo;
 
   return (
-    <Link to="/ProductDetail">
-      <ItemsContainer>
-        <ItemsWrapper>
-          <MainItemImgSlide image_url={image_url} />
-          <ItemInfo>
+    <ItemsContainer>
+      <ItemsWrapper>
+        <MainItemImgSlide image_url={image_url} />
+        <ItemInfo>
+          <Link to="/ProductDetail">
             <InfoHeader>
               <div>
                 <InfoSubTitle>{address}</InfoSubTitle>
@@ -44,10 +44,10 @@ export default function MainContentsItems({ roomsInfo }) {
                 </TotalPrice>
               </ProductItemPrice>
             </InfoPrice>
-          </ItemInfo>
-        </ItemsWrapper>
-      </ItemsContainer>
-    </Link>
+          </Link>
+        </ItemInfo>
+      </ItemsWrapper>
+    </ItemsContainer>
   );
 }
 

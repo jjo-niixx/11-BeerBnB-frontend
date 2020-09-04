@@ -6,7 +6,10 @@ export default function ModalBottom({
   isClearBtnOn,
   unCheckHandler,
   title,
+  index,
   isOwnTitle,
+  saveCheckedList,
+  onFilterClick,
 }) {
   return (
     <BottomBox>
@@ -19,7 +22,14 @@ export default function ModalBottom({
             지우기
           </CleanBtn>
         )}
-        <SaveBtn>저장</SaveBtn>
+        <SaveBtn
+          onClick={(e) => {
+            saveCheckedList(title);
+            onFilterClick(e, index);
+          }}
+        >
+          저장
+        </SaveBtn>
       </ButtonWrapper>
     </BottomBox>
   );

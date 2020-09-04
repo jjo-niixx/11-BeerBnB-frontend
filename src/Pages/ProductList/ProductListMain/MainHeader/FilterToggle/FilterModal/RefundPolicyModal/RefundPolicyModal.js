@@ -5,7 +5,7 @@ import ProductListSvg from "../../../../../ProductListSvg/ProductListSvg";
 
 export default function RefundPolicyModal({
   onCheckRefundPolicy,
-  isRefundPolicyChedcked,
+  isRefundChecked,
 }) {
   const [isItemFocused, setIsItemFocused] = useState(false);
 
@@ -18,12 +18,12 @@ export default function RefundPolicyModal({
       <div>유연한 환불 정책을 제공하는 숙소만 검색 결과에 표시</div>
       <CheckBtnBox onClick={onCheckRefundPolicy} isItemFocused={isItemFocused}>
         <BtnWrapper
-          isRefundPolicyChedcked={isRefundPolicyChedcked}
+          isRefundChecked={isRefundChecked}
           onFocus={onFocusItem}
           onBlur={onFocusItem}
         >
-          <CircleBtn isRefundPolicyChedcked={isRefundPolicyChedcked}>
-            {isRefundPolicyChedcked && ProductListSvg.checkedImg}
+          <CircleBtn isRefundChecked={isRefundChecked}>
+            {isRefundChecked && ProductListSvg.checkedImg}
           </CircleBtn>
         </BtnWrapper>
       </CheckBtnBox>
@@ -60,8 +60,8 @@ const BtnWrapper = styled.button`
   border-radius: 32px;
   background: rgb(176, 176, 176);
   border: 2px solid rgb(176, 176, 176);
-  ${({ isRefundPolicyChedcked }) =>
-    isRefundPolicyChedcked
+  ${({ isRefundChecked }) =>
+    isRefundChecked
       ? ` 
       background: rgb(4, 4, 4);
       border: 2px solid rgb(4, 4, 4);`
@@ -81,6 +81,6 @@ const CircleBtn = styled.div`
   border-radius: 50%;
   background-color: white;
   transition: transform 400ms;
-  ${({ isRefundPolicyChedcked }) =>
-    isRefundPolicyChedcked ? "transform: translateX(15px);" : ""}
+  ${({ isRefundChecked }) =>
+    isRefundChecked ? "transform: translateX(15px);" : ""}
 `;

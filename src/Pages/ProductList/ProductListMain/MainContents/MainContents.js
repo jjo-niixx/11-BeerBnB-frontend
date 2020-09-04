@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import MainContentsItems from "./MainContentsItems/MainContentsItems";
 import ProductListMainFooter from "./ProductListMainFooter/ProductListMainFooter";
 import mixin from "../../../../Styles/mixin";
 
-export default function MainContents({ currentPage, onChangePage }) {
-  const [roomsInfoList, setRoomsInfoList] = useState([]);
-
-  useEffect(() => {
-    fetch("/data/productListData.json")
-      .then((res) => res.json())
-      .then((res) => setRoomsInfoList(res));
-  }, []);
-
+export default function MainContents({
+  currentPage,
+  onChangePage,
+  roomsInfoList,
+}) {
   return (
     <article>
       <ContentsHeader>
@@ -31,13 +27,13 @@ export default function MainContents({ currentPage, onChangePage }) {
           </FilterRecommend>
         </WrapTripDescription>
       </ContentsHeader>
-      {roomsInfoList.rooms_list &&
-        roomsInfoList.rooms_list.map((roomsInfo) => (
-          <MainContentsItems key={roomsInfo.id} roomsInfo={roomsInfo} />
-        ))}
+      {roomsInfoList.rooms_list?.map((roomsInfo, index) => (
+        <MainContentsItems key={roomsInfo.id + index} roomsInfo={roomsInfo} />
+      ))}
       <ProductListMainFooter
         currentPage={currentPage}
         onChangePage={onChangePage}
+        roomsInfoList={roomsInfoList}
       />
     </article>
   );
