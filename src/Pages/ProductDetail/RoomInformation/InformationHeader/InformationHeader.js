@@ -3,13 +3,13 @@ import styled from "styled-components";
 import Title from "../../ProductDetailComponent/Title";
 import mixin from "../../../../Styles/mixin";
 
-function InformationHeader({ title, subTitle }) {
+function InformationHeader({ subTitle, roomInformation }) {
   return (
     <InformationHeaderContainer>
       <TitleWrapper>
-        <Title title={title} />
+        <Title title={subTitle} />
         <SubTitle>
-          {subTitle.map((el, idx) => (
+          {roomInformation.map((el, idx) => (
             <div key={idx}>
               <span>{el}</span>
               <Dot>·</Dot>

@@ -27,6 +27,7 @@ const ImgAreaContainer = styled.div`
 
 const HalfSizeImg = styled.img`
   flex: 1 0 50%;
+  width: 50%;
   border-radius: 12px 0 0 12px;
 
   &:hover {

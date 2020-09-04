@@ -14,6 +14,8 @@ export default function FilterModal({
   activeCleanBtnList,
   saveCheckedList,
   onFilterClick,
+  isInstantChecked,
+  onCheckInstantReserve,
 }) {
   const { HeaderModal, isClearBtnOn, title, id } = filterInfo;
   const isOwnTitle = activeCleanBtnList.includes(id);
@@ -26,6 +28,8 @@ export default function FilterModal({
           isRefundChecked={isRefundChecked}
           checkedRoomTypeList={checkedRoomTypeList}
           roomTypeFilterHandler={roomTypeFilterHandler}
+          isInstantChecked={isInstantChecked}
+          onCheckInstantReserve={onCheckInstantReserve}
         />
       </HeaderBox>
       <ModalBottom

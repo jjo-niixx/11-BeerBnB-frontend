@@ -13,6 +13,7 @@ export default function FilterToggle({
 }) {
   const [isRefundChecked, setIsRefundChecked] = useState(false);
   const [checkedRoomTypeList, setCheckedRoomTypeList] = useState([]);
+  const [isInstantChecked, setIsInstantChecked] = useState(false);
   const [activeCleanBtnList, setActiveCleanBtnList] = useState([]);
   const { title, type } = filterInfo;
 
@@ -47,6 +48,21 @@ export default function FilterToggle({
     }
   }, [checkedRoomTypeList, activeCleanBtnList]);
 
+  useEffect(() => {
+    const isOwnInstant = activeCleanBtnList.includes("instantReserve");
+
+    if (isInstantChecked && !isOwnInstant) {
+      setActiveCleanBtnList([...activeCleanBtnList, "instantReserve"]);
+    }
+    if (!isInstantChecked && isOwnInstant) {
+      const newList = activeCleanBtnList.filter(
+        (acitvebtn) => acitvebtn !== "instantReserve"
+      );
+
+      setActiveCleanBtnList(newList);
+    }
+  }, [isInstantChecked, activeCleanBtnList]);
+
   const onCheckRefundPolicy = () => {
     setIsRefundChecked(!isRefundChecked);
   };
@@ -59,6 +75,10 @@ export default function FilterToggle({
         ? checkedRoomTypeList.filter((checked) => checked !== id)
         : [...checkedRoomTypeList, id]
     );
+  };
+
+  const onCheckInstantReserve = () => {
+    setIsInstantChecked(!isInstantChecked);
   };
 
   const unCheckHandler = (name) => {
@@ -106,10 +126,12 @@ export default function FilterToggle({
               filterInfo={filterInfo}
               isRefundChecked={isRefundChecked}
               checkedRoomTypeList={checkedRoomTypeList}
+              isInstantChecked={isInstantChecked}
               activeCleanBtnList={activeCleanBtnList}
               onCheckRefundPolicy={onCheckRefundPolicy}
               unCheckHandler={unCheckHandler}
               roomTypeFilterHandler={roomTypeFilterHandler}
+              onCheckInstantReserve={onCheckInstantReserve}
               saveCheckedList={saveCheckedList}
               onFilterClick={onFilterClick}
             />

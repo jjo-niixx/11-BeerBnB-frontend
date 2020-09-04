@@ -1,10 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Title from "../../ProductDetailComponent/Title";
 import mixin from "../../../../Styles/mixin";
 import iconMatch from "../../IconMatch/IconMatch";
 
-function Amenities({ amenities }) {
+function Amenities() {
+  const { amenities } = useSelector(({ productDetail }) => ({
+    amenities: productDetail.amenities,
+  }));
   const { useable, unuseable } = amenities || {};
   return (
     <AmenitiesContianer>

@@ -4,7 +4,7 @@ import FilterToggle from "./FilterToggle/FilterToggle";
 import RefundPolicyModal from "./FilterToggle/FilterModal/RefundPolicyModal/RefundPolicyModal";
 import RoomsTypeModal from "./FilterToggle/FilterModal/RoomsTypeModal/RoomsTypeModal";
 import PaymentModal from "./FilterToggle/FilterModal/PaymentModal/PaymentModal";
-import BedroomModal from "./FilterToggle/FilterModal/BedroomModal/BedroomModal";
+import InstantModal from "./FilterToggle/FilterModal/InstantModal/InstantModal";
 
 export default function MainHeader({
   activeFilterIndex,
@@ -74,10 +74,10 @@ const FILTER_INFO_LIST = [
     isClearBtnOn: true,
   },
   {
-    id: "bedRoom",
-    title: "침실과 침대",
+    id: "instantReserve",
+    title: "즉시 예약",
     type: "MODAL",
-    HeaderModal: BedroomModal,
+    HeaderModal: InstantModal,
     isClearBtnOn: false,
   },
   { id: "addFilter", title: "필터 추가하기", type: "POPUP" },
