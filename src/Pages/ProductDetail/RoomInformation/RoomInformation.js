@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import InformationHeader from "./InformationHeader/InformationHeader";
+import RoomCondition from "./RoomCondition/RoomCondition";
 
 export default function RoomInformation({ roomInfo }) {
-  const { headerData } = roomInfo;
+  const { headerData, roomConditionData } = roomInfo;
   return (
     <RoomInformationContainer>
       <InformationContainer>
         <InformationHeader headerData={headerData} />
+        <RoomCondition roomConditionData={roomConditionData} />
       </InformationContainer>
       <Reservation></Reservation>
     </RoomInformationContainer>
