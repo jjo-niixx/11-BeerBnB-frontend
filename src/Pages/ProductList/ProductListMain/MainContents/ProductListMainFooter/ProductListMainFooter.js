@@ -7,30 +7,32 @@ import mixin from "../../../../../Styles/mixin";
 
 export default class ProductListMainFooter extends Component {
   render() {
-    const { pageNumClickedAt, gotoHandler } = this.props;
+    const { currentPage, onChangePage } = this.props;
+
+    const isFirstPage = currentPage === 1;
+    const isLastPage = currentPage === tempData[tempData.length - 1];
+
     return (
       <FooterContainer>
         <WrapFooterPageBtn>
-          {pageNumClickedAt !== 1 && (
+          {!isFirstPage && (
             <FooterNextPrevBtnSvg
-              num={-1}
-              gotoHandler={gotoHandler}
-              btnSvg={ProductListSvg.prevBtn}
+              onClick={() => onChangePage(currentPage - 1)}
+              btnSvg={ProductListSvg.prevBtnImg}
             />
           )}
-          {tempData.map((el) => (
+          {tempData.map((pageNum) => (
             <ProductListPageBtn
-              pageNum={el}
-              key={el}
-              pageNumClickedAt={pageNumClickedAt}
-              gotoHandler={gotoHandler}
+              pageNum={pageNum}
+              key={pageNum}
+              onClick={() => onChangePage(pageNum)}
+              active={pageNum === currentPage}
             />
           ))}
-          {pageNumClickedAt !== tempData[tempData.length - 1] && (
+          {!isLastPage && (
             <FooterNextPrevBtnSvg
-              num={1}
-              gotoHandler={gotoHandler}
-              btnSvg={ProductListSvg.nextBtn}
+              onClick={() => onChangePage(currentPage + 1)}
+              btnSvg={ProductListSvg.nextBtnImg}
             />
           )}
         </WrapFooterPageBtn>

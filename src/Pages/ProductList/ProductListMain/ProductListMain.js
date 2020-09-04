@@ -5,17 +5,19 @@ import MainContents from "./MainContents/MainContents";
 
 export default class ProductListMain extends Component {
   render() {
-    const { headerOptionClickedAt, gotoHandler, pageNumClickedAt } = this.props;
+    const {
+      activeFilterIndex,
+      onFilterClick,
+      currentPage,
+      onChangePage,
+    } = this.props;
     return (
       <MainContainer>
         <MainHeader
-          headerOptionClickedAt={headerOptionClickedAt}
-          gotoHandler={gotoHandler}
+          activeFilterIndex={activeFilterIndex}
+          onFilterClick={onFilterClick}
         />
-        <MainContents
-          pageNumClickedAt={pageNumClickedAt}
-          gotoHandler={gotoHandler}
-        />
+        <MainContents currentPage={currentPage} onChangePage={onChangePage} />
       </MainContainer>
     );
   }
@@ -23,5 +25,5 @@ export default class ProductListMain extends Component {
 
 const MainContainer = styled.section`
   width: 100%;
-  padding: 0 20px;
+  padding: 50px 20px 32px;
 `;

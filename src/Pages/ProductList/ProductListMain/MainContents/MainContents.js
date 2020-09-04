@@ -6,7 +6,7 @@ import mixin from "../../../../Styles/mixin";
 
 export default class MainContents extends Component {
   render() {
-    const { pageNumClickedAt, gotoHandler } = this.props;
+    const { currentPage, onChangePage } = this.props;
     return (
       <article>
         <ContentsHeader>
@@ -28,8 +28,8 @@ export default class MainContents extends Component {
         </ContentsHeader>
         <MainContentsItems />
         <ProductListMainFooter
-          pageNumClickedAt={pageNumClickedAt}
-          gotoHandler={gotoHandler}
+          currentPage={currentPage}
+          onChangePage={onChangePage}
         />
       </article>
     );
@@ -38,7 +38,7 @@ export default class MainContents extends Component {
 
 const ContentsHeader = styled.div`
   ${mixin.flexSet("row", "flex-start")};
-  padding-bottom: 20px;
+  padding: 20px 0;
   border-bottom: ${({ theme }) => theme.borderSet};
 `;
 

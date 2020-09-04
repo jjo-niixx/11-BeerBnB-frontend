@@ -4,40 +4,39 @@ import ProductListMain from "./ProductListMain/ProductListMain";
 import AsideMap from "./AsideMap/AsideMap";
 
 function ProductList() {
-  const [headerOptionClickedAt, setHeaderOptionClickedAt] = useState("");
-  const [pageNumClickedAt, setPageNumClickedAt] = useState(1);
+  const [activeFilterIndex, setActiveFilterIndex] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const gotoHandler = (name, idx) => {
-    if (name === "headerOption") {
-      setHeaderOptionClickedAt(headerOptionClickedAt === idx ? "" : idx);
-    }
-    if (name === "pageNum") {
-      if (pageNumClickedAt === idx) return;
-      setPageNumClickedAt(idx);
-    }
-    if (name === "nextPrev") {
-      setPageNumClickedAt(pageNumClickedAt + idx);
-    }
+  const onFilterClick = (e, idx) => {
+    // 현재 active 상태인 토글을 다시 클릭하면 끄도록 처리함
+    setActiveFilterIndex(activeFilterIndex === idx ? null : idx);
+    e.stopPropagation();
+  };
+
+  const onChangePage = (idx) => {
+    if (currentPage === idx) return;
+    setCurrentPage(idx);
   };
 
   return (
-    <>
-      <EmptyHeaderNav />
+    <div onClick={() => setActiveFilterIndex(null)}>
+      <SpaceForNav />
       <ProductListWrap>
         <ProductListMain
-          headerOptionClickedAt={headerOptionClickedAt}
-          pageNumClickedAt={pageNumClickedAt}
-          gotoHandler={gotoHandler}
+          activeFilterIndex={activeFilterIndex}
+          currentPage={currentPage}
+          onFilterClick={onFilterClick}
+          onChangePage={onChangePage}
         />
         <AsideMap />
       </ProductListWrap>
-    </>
+    </div>
   );
 }
 
 export default ProductList;
 
-const EmptyHeaderNav = styled.div`
+const SpaceForNav = styled.div`
   height: 80px;
 `;
 

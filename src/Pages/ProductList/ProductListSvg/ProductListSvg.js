@@ -108,5 +108,25 @@ const ProductListSvg = {
       <path d="m10.8 16c-.4 0-.7-.1-.9-.4l-6.8-6.7c-.5-.5-.5-1.3 0-1.8l6.8-6.7c.5-.5 1.2-.5 1.7 0s .5 1.2 0 1.7l-5.8 5.9 5.8 5.9c.5.5.5 1.2 0 1.7-.2.3-.5.4-.8.4"></path>
     </svg>
   ),
+  checkedImg: (
+    <svg
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      style={{
+        display: "block",
+        fill: "none",
+        height: "12px",
+        width: "12px",
+        stroke: "currentcolor",
+        strokeWidth: 5.33333,
+        overflow: "visible",
+      }}
+    >
+      <path fill="none" d="m4 16.5 8 8 16-16"></path>
+    </svg>
+  ),
 };
 export default ProductListSvg;

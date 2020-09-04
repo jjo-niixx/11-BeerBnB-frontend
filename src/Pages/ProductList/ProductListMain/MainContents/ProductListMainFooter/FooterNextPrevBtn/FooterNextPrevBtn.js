@@ -4,9 +4,9 @@ import mixin from "../../../../../../Styles/mixin";
 
 export default class FooterNextPrevBtn extends Component {
   render() {
-    const { btnSvg, gotoHandler, num } = this.props;
+    const { btnSvg, onClick } = this.props;
     return (
-      <BtnSvgContainer onClick={() => gotoHandler("nextPrev", num)}>
+      <BtnSvgContainer onClick={onClick}>
         <WrapBtnSvg>{btnSvg}</WrapBtnSvg>
       </BtnSvgContainer>
     );

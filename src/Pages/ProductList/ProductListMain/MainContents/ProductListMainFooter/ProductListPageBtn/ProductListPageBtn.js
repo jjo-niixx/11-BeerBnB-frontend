@@ -4,13 +4,9 @@ import mixin from "../../../../../../Styles/mixin";
 
 export default class ProductListPageBtn extends Component {
   render() {
-    const { pageNum, pageNumClickedAt, gotoHandler } = this.props;
-    const isPushed = pageNum === pageNumClickedAt;
+    const { onClick, pageNum, active } = this.props;
     return (
-      <PageBtnContainer
-        isPushed={isPushed}
-        onClick={() => gotoHandler("pageNum", pageNum)}
-      >
+      <PageBtnContainer active={active} onClick={onClick}>
         {pageNum}
       </PageBtnContainer>
     );
@@ -23,11 +19,11 @@ const PageBtnContainer = styled.div`
   height: 32px;
   margin: 0 10px;
   border-radius: 50%;
-  background-color: ${({ isPushed }) => (isPushed ? "black" : "white")};
-  color: ${({ isPushed }) => (isPushed ? "white" : "black")};
-  cursor: ${({ isPushed }) => (isPushed ? "default" : "pointer")};
+  background-color: ${({ active }) => (active ? "black" : "white")};
+  color: ${({ active }) => (active ? "white" : "black")};
+  cursor: ${({ active }) => (active ? "default" : "pointer")};
 
   &:hover {
-    text-decoration: ${({ isPushed }) => (isPushed ? "none" : "underline")};
+    text-decoration: ${({ active }) => (active ? "none" : "underline")};
   }
 `;
