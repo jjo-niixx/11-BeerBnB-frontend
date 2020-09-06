@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Title from "../RoomInfoComponent/Title";
+import Title from "../../ProductDetailComponent/Title";
 import Svg from "../../SVG/ProductDetailSvg";
 import mixin from "../../../../Styles/mixin";
 

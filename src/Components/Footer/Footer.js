@@ -83,8 +83,6 @@ export default function Footer() {
 }
 
 const FooterContainer = styled.div`
-  position: absolute;
-  bottom: 0;
   width: 100%;
   padding: 0 80px;
   border-top: ${({ theme }) => theme.borderSet};

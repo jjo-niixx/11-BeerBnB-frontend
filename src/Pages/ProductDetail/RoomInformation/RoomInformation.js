@@ -4,6 +4,7 @@ import InformationHeader from "./InformationHeader/InformationHeader";
 import RoomCondition from "./RoomCondition/RoomCondition";
 import BedType from "./BedType/BedType";
 import Description from "./Description/Description";
+import Amenities from "./Amenities/Amenities";
 
 export default function RoomInformation({
   title,
@@ -13,6 +14,7 @@ export default function RoomInformation({
   bedRoom,
   bedType,
   description,
+  amenities,
 }) {
   return (
     <RoomInformationContainer>
@@ -21,6 +23,7 @@ export default function RoomInformation({
         <RoomCondition tagTitle={tagTitle} tagDetail={tagDetail} />
         <Description description={description} />
         <BedType bedRoom={bedRoom} bedType={bedType} />
+        <Amenities amenities={amenities} />
       </InformationContainer>
       <Reservation></Reservation>
     </RoomInformationContainer>
@@ -37,14 +40,15 @@ const RoomInformationContainer = styled.section`
 
 const InformationContainer = styled.article`
   width: 60%;
-  height: 200vh;
 `;
 
 const Reservation = styled.article`
   position: sticky;
-  top: 128px;
+  top: 170px;
   width: 35%;
   height: 30vh;
   margin-left: 5%;
-  background-color: blue;
+  border: ${({ theme }) => theme.borderSet};
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 `;

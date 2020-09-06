@@ -4,12 +4,12 @@ import RoomIntroduce from "./RoomIntroduce/RoomIntroduce";
 import RoomInformation from "./RoomInformation/RoomInformation";
 
 export default function ProductDetail() {
-  const [data, setData] = useState({});
+  const [roomInfo, setRoomInfo] = useState({});
 
   useEffect(() => {
     fetch("/data/ProductDetailData.json")
       .then((res) => res.json())
-      .then((res) => setData(res.detail_list[0]));
+      .then((res) => setRoomInfo(res.detail_list[0]));
   }, []);
 
   const {
@@ -27,13 +27,13 @@ export default function ProductDetail() {
     description,
     bedroom,
     bedtype,
-    amenity,
+    amenity_list,
     latitude,
     longitude,
     rules_of_use,
     health_and_safety,
     refund_policy,
-  } = data;
+  } = roomInfo;
 
   return (
     <Main>
@@ -46,6 +46,7 @@ export default function ProductDetail() {
         description={description}
         bedRoom={bedroom}
         bedType={bedtype}
+        amenities={amenity_list}
       />
     </Main>
   );

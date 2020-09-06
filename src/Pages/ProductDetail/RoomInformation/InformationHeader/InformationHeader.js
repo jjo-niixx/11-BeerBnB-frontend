@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Title from "../RoomInfoComponent/Title";
+import Title from "../../ProductDetailComponent/Title";
 import mixin from "../../../../Styles/mixin";
 
 function InformationHeader({ title, subTitle }) {
