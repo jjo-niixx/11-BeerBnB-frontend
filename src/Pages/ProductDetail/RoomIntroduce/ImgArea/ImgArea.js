@@ -20,15 +20,13 @@ export default ImgArea;
 const ImgAreaContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
   margin-top: 24px;
-  max-height: calc(60vh - 64px);
+  max-height: calc(45vh - 64px);
   border-radius: 12px;
 `;
 
 const HalfSizeImg = styled.img`
   flex: 1 0 50%;
-  height: 100%;
   border-radius: 12px 0 0 12px;
 
   &:hover {
@@ -41,7 +39,6 @@ const QuarterSizeImgWrapper = styled.div`
   flex-wrap: wrap;
   flex: 1 0 50%;
   width: 50%;
-  height: 100%;
   padding-left: 8px;
 `;
 

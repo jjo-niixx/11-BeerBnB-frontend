@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import RoomIntroduce from "./RoomIntroduce/RoomIntroduce";
 import RoomInformation from "./RoomInformation/RoomInformation";
+import ToKnowList from "./ToKnowList/ToKnowList";
 
 export default function ProductDetail() {
   const [roomInfo, setRoomInfo] = useState({});
@@ -13,7 +14,6 @@ export default function ProductDetail() {
   }, []);
 
   const {
-    id,
     address,
     image_url,
     title,
