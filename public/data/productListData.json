@@ -1,0 +1,624 @@
+{
+  "rooms_list": [
+    {
+      "id": 1,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/24c13157-5820-4ac5-89de-c61ff56d0b7d.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/f21352bf-128d-4577-9298-51db1e7bb8f7.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/9f477c44-0fe8-4a86-a368-9884e20db07c.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/0976af5e-be2b-494e-ad79-d0c41c9fb548.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/16d5ab73-f10d-46b8-8560-34f8ca896b2f.jpg?aki_policy=large"
+      ],
+      "address": "서귀포시, 제주도, 한국",
+      "title": "\" 제주감성숙소\" 미니메리 [미니메리룸:]",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "아침식사",
+        "헤어드라이어",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "난방",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "78000.00",
+      "latitude": "33.23572000",
+      "longitude": "126.36461000"
+    },
+    {
+      "id": 2,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/bb8004a6-fbb5-4073-9d8a-b11b972005f4.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/a3be415c-5568-41d9-989a-965fb3362d4b.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/3342dbc0-1e67-440c-b319-34bb8c33f52e.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/fee263c2-c176-4a7b-95f1-97aff75139d9.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/e6cd87e7-2f65-4b34-b9c7-67e4fffa5327.jpg?aki_policy=large"
+      ],
+      "address": "Hallim-eub, Jeju-si, 제주도, 한국",
+      "title": "귤밭한가운데있는집 \"귤한가\"201호",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "단독 사용 욕실 1개",
+      "amenity": [
+        "수영장",
+        "자쿠지",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "TV"
+      ],
+      "price": "160000.00",
+      "latitude": "33.37606000",
+      "longitude": "126.25959000"
+    },
+    {
+      "id": 3,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/7d0486c9-f75c-49b7-8a8a-7d2ec2bef3f4.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/31c62e67-677d-45d6-8e75-5d2d36fc5b16.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/2fc6970e-f3f0-4cd1-9e0c-52172b50fa35.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/4f42e602-31a8-4d60-8391-d465b18076ae.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/3864f87e-1f3d-4893-b931-6ecee823d40a.jpg?aki_policy=large"
+      ],
+      "address": "Hallim-eub, Jeju-si, 제주도, 한국",
+      "title": "stay_AHHA _01호",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 2개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "수영장",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "TV"
+      ],
+      "price": "120000.00",
+      "latitude": "33.40092000",
+      "longitude": "126.25564000"
+    },
+    {
+      "id": 4,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/cee1dd2d-1fbf-4ecd-8a78-389263ed15ac.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/1023bb30-dd24-43f8-a785-b22f985ccc9e.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/261b91e2-c59f-468d-835e-aaa42e92b685.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/2e0ddade-8b66-4b76-8f6a-9a1fec2235e5.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/7cca147f-1fe2-42bb-b26b-197a1ad55bb3.jpg?aki_policy=large"
+      ],
+      "address": "Aewol-eup, Jeju-si, 제주도, 한국",
+      "title": "하버하우스 웨스트 Bass room (1인실 Super single)",
+      "max_personnal": "최대 인원 1명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "공동 사용 욕실 2개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "아침식사",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "난방",
+        "에어컨"
+      ],
+      "price": "40000.00",
+      "latitude": "33.46600000",
+      "longitude": "126.33700000"
+    },
+    {
+      "id": 5,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/cffa27c2-f3c0-436d-beb7-59374b52996c.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/46f4fd11-6036-4d52-9fd7-93d60338232b.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/06c52fe4-7f5a-4e4b-ab84-5a4489f57457.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/1988736e-e8b7-449a-bd37-1a2037618d70.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/7b1cf50d-3ce5-440c-b3bf-49465b0ed2c3.jpg?aki_policy=large"
+      ],
+      "address": "Aewol-eup, Chejusi, 제주도, 한국",
+      "title": "제주돌집 (애월100년 감성돌집 아늑하고 제주스러운 독채)",
+      "max_personnal": "최대 인원 3명",
+      "bed_room": "침실 2개",
+      "bed": "침대 2개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "TV"
+      ],
+      "price": "158000.00",
+      "latitude": "33.46418000",
+      "longitude": "126.32123000"
+    },
+    {
+      "id": 6,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/83a38640-47ba-486f-aa5c-f6a8fc5f8424.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/0e238686-8bec-4b48-9e4e-69cd31ea87da.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/5d8b7db6-6340-4e49-aad9-e5a55e579127.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/fc690fbd-4af1-49d1-9e59-29d50f38f2f1.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/592baf1f-1b83-4443-b53c-e4d72188c48c.jpg?aki_policy=large"
+      ],
+      "address": "Jochon-eup, Cheju, 제주도, 한국",
+      "title": "섬집오후 바당채",
+      "max_personnal": "최대 인원 4명",
+      "bed_room": "침실 2개",
+      "bed": "침대 2개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "TV",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "160000.00",
+      "latitude": "33.53816000",
+      "longitude": "126.63383000"
+    },
+    {
+      "id": 7,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/09c6baf0-b2ee-4efc-88b5-1cf688f7cfb7.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/2e6cfc78-0b77-4aed-afc7-e884763bb813.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/d84dd55b-0b31-42a5-b65b-229ca688583b.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/99426dae-67dd-4422-a6d5-5101bc443037.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/af71624f-b26f-4251-8715-4ead70adef16.jpg?aki_policy=large"
+      ],
+      "address": "Dodu-dong, Jeju-si, 제주도, 한국",
+      "title": "달콤 stay-환상의 바다뷰 (제주공항10분, 애월15분, 이호테우인근)",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "엘리베이터",
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "60000.00",
+      "latitude": "33.50521000",
+      "longitude": "126.46420000"
+    },
+    {
+      "id": 8,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/885457f2-8f1a-42fa-bb44-1b0d49cec872.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/dea9ec82-7d11-4e5b-9ecf-72433adf4f2c.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/769af0bb-cac5-4cce-b15f-8882976ee89c.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/b68ec71c-cde2-4b10-8b3f-f8d8a57daab4.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/8797ed54-649c-4a3c-99c0-26331eea3fcd.jpg?aki_policy=large"
+      ],
+      "address": "Hallim-eub, Cheju, 제주도, 한국",
+      "title": "[독채] 프라이빗 온수풀! 마당이 넓은시골집! '게으른오후'",
+      "max_personnal": "최대 인원 6명",
+      "bed_room": "침실 2개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "수영장",
+        "자쿠지",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기"
+      ],
+      "price": "234026.00",
+      "latitude": "33.38500000",
+      "longitude": "126.28400000"
+    },
+    {
+      "id": 9,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/502b2333-b307-4d34-b6f0-1d2c6abb616a.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/f9f1fb15-9ed6-4f52-9f45-af95aa049bf7.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/e49f7e93-2001-45a6-9d79-381c84a2b08f.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/34692937-1e1f-4877-b5f1-1be99fdc4eee.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/dd047de6-dd85-4fbc-bcde-de4085576286.jpg?aki_policy=large"
+      ],
+      "address": "Aewol-eup, Cheju, 제주도, 한국",
+      "title": "애월바다를 품은 프라이빗한 작은 독채 제주애에서 제주도만의 여유로움과 한적함을 만끽하세요-",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "아침식사",
+        "건조기",
+        "다리미",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이"
+      ],
+      "price": "169000.00",
+      "latitude": "33.46560000",
+      "longitude": "126.33442000"
+    },
+    {
+      "id": 10,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/1662b337-2948-4db9-b955-7191a66b9546.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/2a3bbbe1-0bda-4deb-8a6b-488dedc4e6fe.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/113292d7-0afa-46cd-9c52-8449f996952f.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/f8009ef3-7a8a-4c32-9d7b-c63654c10bad.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/41b25846-7f7e-4106-a96f-9cf7b707e84f.jpg?aki_policy=large"
+      ],
+      "address": "제주시, 제주도, 한국",
+      "title": "[커플특가/노천탕무료]여유의 집_오리엔탈 무드의 매력적인 중정 노천탕이 있는 로맨틱 하우스",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "에어컨",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "200000.00",
+      "latitude": "33.45125000",
+      "longitude": "126.39425000"
+    },
+    {
+      "id": 11,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/c14f70bf-99fb-47cb-8224-2ee5eb29b32b.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/6ef50c90-bb06-400f-adcf-1e205f5bc140.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/439de884-1265-4d22-9df5-46757053b337.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/5c75a228-e026-46c4-a792-b0b841d29ef5.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/25b77fa8-7225-4498-9118-15c2c7abb564.jpg?aki_policy=large"
+      ],
+      "address": "Hallim-eub, Jeju-si, 제주도, 한국",
+      "title": "애아리in귀덕 - 바다를 담은 집 Private rental house",
+      "max_personnal": "최대 인원 6명",
+      "bed_room": "침실 2개",
+      "bed": "침대 2개",
+      "bath_room": "욕실 2개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "난방"
+      ],
+      "price": "240000.00",
+      "latitude": "33.43700000",
+      "longitude": "126.27500000"
+    },
+    {
+      "id": 12,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/14e2a71d-ff34-4a7d-adcc-8e533b79b9fa.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/36dcfde2-4290-4ed0-8e3a-8653cf747f39.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/35a02170-b632-47f5-a73a-5f9862f707a6.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/05555167-c742-4689-8ae6-794881d4c447.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/46a115ac-8c94-4c7e-9d10-4d31aa6b117c.jpg?aki_policy=large"
+      ],
+      "address": "Aewol-eup, Cheju, 제주도, 한국",
+      "title": "봉성소락",
+      "max_personnal": "최대 인원 4명",
+      "bed_room": "침실 2개",
+      "bed": "침대 2개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "자쿠지",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "에어컨",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "250000.00",
+      "latitude": "33.41443000",
+      "longitude": "126.31562000"
+    },
+    {
+      "id": 13,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/f0bc1759-7e81-4267-bf6f-fa33585d56b2.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/c79256ad-343a-464c-8bd4-eddd806d98d5.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/52e2f257-0b32-4802-af19-fe7d4cbd42fa.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/bd85b215-4014-4cf4-bba8-0817fccf52bf.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/123929be-e39f-4c81-b6a8-9861bf2988fa.jpg?aki_policy=large"
+      ],
+      "address": "제주시, 제주도, 한국",
+      "title": "클라우드 애월 ''COZY'' 애월 돌집 잔디마당 독채 욕조 제주에서의 특별한밤~☆",
+      "max_personnal": "최대 인원 4명",
+      "bed_room": "침실 1개",
+      "bed": "침대 2개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "난방",
+        "TV",
+        "에어컨"
+      ],
+      "price": "180000.00",
+      "latitude": "33.47708000",
+      "longitude": "126.37178000"
+    },
+    {
+      "id": 14,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/19839dd6-12dc-4014-83c5-4da9560ccb16.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/fe137ff5-ab5e-4ee8-8adc-13022161e690.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/e954ebd6-e4d3-4525-b7e7-667714bf6126.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/c03a33df-88d9-495a-9125-f86fd5d248a8.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/d0225cb0-88e2-4036-8b15-ab32541e2d98.jpg?aki_policy=large"
+      ],
+      "address": "Hangyeong-myeon, Cheju, 제주도, 한국",
+      "title": "귤밭 속 돌담집 버몬트 vermont bed and book",
+      "max_personnal": "최대 인원 4명",
+      "bed_room": "침실 2개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기",
+        "이용 불가: 화재경보기\n화재경보기"
+      ],
+      "price": "95000.00",
+      "latitude": "33.32026000",
+      "longitude": "126.24176000"
+    },
+    {
+      "id": 15,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/532a3ba3-d1c3-44b5-a7ad-c97113da2cfe.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/76305923-d1bf-4f63-ba92-18b2e41353e4.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/68489c62-e0a0-46e4-bc57-4e4da455f897.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/0e239b48-5e86-41b8-b6ab-a8b0e60dc6f1.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/626ba99c-dd01-44f3-ba65-b6db221fdb4d.jpg?aki_policy=large"
+      ],
+      "address": "Jochon-eup, Cheju, 한국",
+      "title": "스쿠버다이빙 프리다이빙 서핑 스노쿨링 반잠수함 전문 오션뷰 펜션 인피니티 리조트 입니다",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 0개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "에어컨",
+        "도로 주차(무료)",
+        "암막 커튼"
+      ],
+      "price": "80000.00",
+      "latitude": "33.54800000",
+      "longitude": "126.65700000"
+    },
+    {
+      "id": 16,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/783af174-a945-4461-bed8-1f9525bc60b8.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/2661b711-0ac6-4c94-ba2f-0d453b2d6ecd.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/a7f87f24-f382-418b-aaca-a4a8b14e2fc4.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/dabb9c98-6d95-4c01-a0d1-3d86f4880de0.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/60b23cbe-96c0-4d7a-9bc8-78178251269d.jpg?aki_policy=large"
+      ],
+      "address": "Samyangsam-dong, Cheju, 제주도, 한국",
+      "title": "Ju's home(2) 공항 9km/ 제주시 바닷가 앞 2층 감성숙소",
+      "max_personnal": "최대 인원 4명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기",
+        "이용 불가: 화재경보기\n화재경보기"
+      ],
+      "price": "130000.00",
+      "latitude": "33.52540000",
+      "longitude": "126.57377000"
+    },
+    {
+      "id": 17,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/1165d524-c452-49ff-a456-a06da1f9e0d4.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/2b5bc1c4-5917-49d9-a265-4576a697d623.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/6cd2a6db-ab17-47c5-9c9c-a6f0a23d8da9.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/c3955553-b3fb-427f-b104-185f7c57477f.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/a9e22c58-7101-4155-af67-548a279e3343.jpg?aki_policy=large"
+      ],
+      "address": "Gujwa-eup, Jeju-si, 제주도, 한국",
+      "title": "제주 바다 돌담 감성 가득 독채숙소 낭만목(A)",
+      "max_personnal": "최대 인원 4명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "TV"
+      ],
+      "price": "110000.00",
+      "latitude": "33.54000000",
+      "longitude": "126.83100000"
+    },
+    {
+      "id": 18,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/2c8fc22c-d515-4f7f-8b75-955c8cdde866.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/a6541438-4a22-437b-aba7-85ea763b656a.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/c622b82d-9fa2-4d53-ba11-8ba383c588b0.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/bd3b79d0-bf3f-4f66-96c1-e1716bafbd34.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/55ce17e0-8653-40a9-b4a3-92bb8a767e92.jpg?aki_policy=large"
+      ],
+      "address": "Iho-dong, Cheju, 제주도, 한국",
+      "title": "이호테우해변 독채민박_ 두꺼비의 빛",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "무선 인터넷",
+        "헤어드라이어",
+        "필수품목",
+        "난방",
+        "에어컨",
+        "화재경보기",
+        "게스트 전용 출입문",
+        "소화기",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "130000.00",
+      "latitude": "33.49623000",
+      "longitude": "126.45064000"
+    },
+    {
+      "id": 19,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/0300a128-76fb-4f81-ae0c-344ea019323e.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/9b9783d6-9d78-4b5a-86e9-7ab73e5679e5.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/1f545b43-b3d9-43ce-82b9-708f1ae3c98f.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/11dd05e5-6346-4c7b-aaa8-d25a1917714e.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/a0436d9c-4037-4e68-91f5-26e36fbb4c06.jpg?aki_policy=large"
+      ],
+      "address": "제주시, 제주특별자치도, 한국",
+      "title": "제주바다가보이는 펜션, 공항10분소요 (Seaview/Airport10min)",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "원룸",
+      "bed": "침대 1개",
+      "bath_room": "단독 사용 욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "케이블 TV",
+        "노트북 작업 공간",
+        "옷걸이",
+        "세탁기",
+        "필수품목",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "46800.00",
+      "latitude": "33.50809000",
+      "longitude": "126.47171000"
+    },
+    {
+      "id": 20,
+      "image_url": [
+        "https://a0.muscache.com/im/pictures/f6331e12-b0ff-48c6-940d-5b0b11ef3165.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/60901a27-a514-4269-b74b-b10fd0ac406c.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/60cd21ad-72ab-40c2-bc64-6435a1f78205.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/47059232-fa91-4723-b3e8-f3951dd647dd.jpg?aki_policy=large",
+        "https://a0.muscache.com/im/pictures/1b5ccb5b-bd21-4a39-9e4f-65c1034976db.jpg?aki_policy=large"
+      ],
+      "address": "Aewol-eup, Cheju, 제주도, 한국",
+      "title": "[커플특가] 헤븐스도어_오늘의 예쁨은 여기서 시작! 제주 애월 로맨틱 스테이 :-)",
+      "max_personnal": "최대 인원 2명",
+      "bed_room": "침실 1개",
+      "bed": "침대 1개",
+      "bath_room": "욕실 1개",
+      "amenity": [
+        "주방",
+        "무선 인터넷",
+        "건물 내 무료 주차",
+        "헤어드라이어",
+        "노트북 작업 공간",
+        "옷걸이",
+        "필수품목",
+        "난방",
+        "에어컨",
+        "이용 불가: 일산화탄소 경보기\n일산화탄소 경보기"
+      ],
+      "price": "140000.00",
+      "latitude": "33.45310000",
+      "longitude": "126.39297000"
+    }
+  ],
+  "total": 93
+}

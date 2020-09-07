@@ -1,34 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import mixin from "../../../../../../../Styles/mixin";
 import ProductListSvg from "../../../../../ProductListSvg/ProductListSvg";
 
 export default function RefundPolicyModal({
-  onCheckItem,
-  onFocusItem,
-  isItemChecked,
-  isItemFocused,
+  onCheckRefundPolicy,
+  isRefundPolicyChedcked,
 }) {
+  const [isItemFocused, setIsItemFocused] = useState(false);
+
+  const onFocusItem = () => {
+    setIsItemFocused(!isItemFocused);
+  };
+
   return (
-    <HeadWrapper>
+    <CheckForRefundPolicy>
       <div>유연한 환불 정책을 제공하는 숙소만 검색 결과에 표시</div>
-      <HeadBtnBox onClick={onCheckItem} isItemFocused={isItemFocused}>
-        <BtnBack
-          isItemChecked={isItemChecked}
+      <CheckBtnBox onClick={onCheckRefundPolicy} isItemFocused={isItemFocused}>
+        <BtnWrapper
+          isRefundPolicyChedcked={isRefundPolicyChedcked}
           onFocus={onFocusItem}
           onBlur={onFocusItem}
         >
-          <CircleBtn isItemChecked={isItemChecked}>
-            {isItemChecked && ProductListSvg.checkedImg}
+          <CircleBtn isRefundPolicyChedcked={isRefundPolicyChedcked}>
+            {isRefundPolicyChedcked && ProductListSvg.checkedImg}
           </CircleBtn>
-        </BtnBack>
-      </HeadBtnBox>
-    </HeadWrapper>
+        </BtnWrapper>
+      </CheckBtnBox>
+    </CheckForRefundPolicy>
   );
 }
 
-const HeadWrapper = styled.div`
+const CheckForRefundPolicy = styled.div`
   ${mixin.flexSet()};
+  width: 356px;
   padding: 12px 4px 20px 0;
 
   div {
@@ -37,8 +42,8 @@ const HeadWrapper = styled.div`
   }
 `;
 
-const HeadBtnBox = styled.div`
-  width: 65px;
+const CheckBtnBox = styled.div`
+  width: 60px;
   height: 40px;
   margin-left: 25px;
   padding: 2px;
@@ -47,7 +52,7 @@ const HeadBtnBox = styled.div`
   border-radius: 30px;
 `;
 
-const BtnBack = styled.button`
+const BtnWrapper = styled.button`
   ${mixin.flexSet("row", "flex-start")}
   position: relative;
   width: 48px;
@@ -55,8 +60,8 @@ const BtnBack = styled.button`
   border-radius: 32px;
   background: rgb(176, 176, 176);
   border: 2px solid rgb(176, 176, 176);
-  ${({ isItemChecked }) =>
-    isItemChecked
+  ${({ isRefundPolicyChedcked }) =>
+    isRefundPolicyChedcked
       ? ` 
       background: rgb(4, 4, 4);
       border: 2px solid rgb(4, 4, 4);`
@@ -76,6 +81,6 @@ const CircleBtn = styled.div`
   border-radius: 50%;
   background-color: white;
   transition: transform 400ms;
-  ${({ isItemChecked }) =>
-    isItemChecked ? "transform: translateX(15px);" : ""}
+  ${({ isRefundPolicyChedcked }) =>
+    isRefundPolicyChedcked ? "transform: translateX(15px);" : ""}
 `;

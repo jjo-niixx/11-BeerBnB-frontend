@@ -3,15 +3,19 @@ import styled from "styled-components";
 import mixin from "../../../../../../../Styles/mixin";
 
 export default function ModalBottom({
-  checkHandler,
-  isItemChecked,
   isClearBtnOn,
+  unCheckHandler,
+  title,
+  isOwnTitle,
 }) {
   return (
     <BottomBox>
       <ButtonWrapper isClearBtnOn={isClearBtnOn}>
         {isClearBtnOn && (
-          <CleanBtn onClick={checkHandler} disabled={!isItemChecked}>
+          <CleanBtn
+            onClick={() => unCheckHandler(title)}
+            disabled={!isOwnTitle}
+          >
             지우기
           </CleanBtn>
         )}

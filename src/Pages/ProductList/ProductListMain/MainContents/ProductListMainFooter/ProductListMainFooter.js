@@ -18,7 +18,7 @@ export default class ProductListMainFooter extends Component {
           {!isFirstPage && (
             <FooterNextPrevBtnSvg
               onClick={() => onChangePage(currentPage - 1)}
-              btnSvg={ProductListSvg.prevBtnImg}
+              btnSvg={ProductListSvg.prevBtn}
             />
           )}
           {tempData.map((pageNum) => (
@@ -32,7 +32,7 @@ export default class ProductListMainFooter extends Component {
           {!isLastPage && (
             <FooterNextPrevBtnSvg
               onClick={() => onChangePage(currentPage + 1)}
-              btnSvg={ProductListSvg.nextBtnImg}
+              btnSvg={ProductListSvg.nextBtn}
             />
           )}
         </WrapFooterPageBtn>
