@@ -3,28 +3,29 @@ import styled from "styled-components";
 import mixin from "../../../../Styles/mixin";
 import Svg from "../../SVG/ProductDetailSvg";
 
-function RoomCondition({ roomConditionData: { title, detail } }) {
+function RoomCondition({ tagTitle, tagDetail }) {
   return (
     <RoomConditionContainer>
-      {title.map((el, idx) => (
-        <Item>
-          {ICON_MATCH[el] || ICON_MATCH.default}
-          <Description>
-            <Title>{el}</Title>
-            <Detail>{detail[idx]}</Detail>
-          </Description>
-        </Item>
-      ))}
+      {tagTitle &&
+        tagTitle.map((el, idx) => (
+          <Item key={el}>
+            {ICON_MATCH[el] || ICON_MATCH.default}
+            <Description>
+              <Title>{el}</Title>
+              <Detail>{tagDetail[idx]}</Detail>
+            </Description>
+          </Item>
+        ))}
     </RoomConditionContainer>
   );
 }
 
 export default RoomCondition;
 
-const { entireHome, enhancedClean, key, calender, superHost } = Svg;
+const { entireHome, enhancedClean, key, calender, superHost, airBnb } = Svg;
 
 const ICON_MATCH = {
-  default: entireHome,
+  default: airBnb,
   "집 전체": entireHome,
   "순조로운 체크인 과정": key,
   "환불 정책": calender,
