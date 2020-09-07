@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
 
 export default function Main() {
@@ -18,9 +17,9 @@ export default function Main() {
       </Wrapper>
       <Wrapper>
         <ContentsList>
-          {ListDescGroup.map((el) => {
+          {ListDescGroup.map((el, idx) => {
             return (
-              <ListBox src={el.src}>
+              <ListBox key={idx} src={el.src}>
                 <ItemDesc>
                   <h3>{el.title}</h3>
                   <p>{el.desc}</p>
