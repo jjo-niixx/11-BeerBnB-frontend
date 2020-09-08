@@ -1,5 +1,6 @@
 const RECEIVE_ROOMINFO = "productDetail/RECEIVE_ROOMINFO";
 const RECEIVE_AMENITIES = "productDetail/RECEIVE_AMENITIES";
+const RECEIVE_REVIEWS = "productDetail/RECEIVE_REVIEWS";
 
 export const receiveRoomInfo = (roomInfo) => ({
   type: RECEIVE_ROOMINFO,
@@ -11,9 +12,15 @@ export const receiveAmenities = (amenities) => ({
   amenities,
 });
 
+export const receiveReviews = (reviews) => ({
+  type: RECEIVE_REVIEWS,
+  reviews,
+});
+
 const intialState = {
   roomInfo: {},
   amenities: {},
+  reviews: {},
 };
 
 export default function productDetail(state = intialState, action) {
@@ -27,6 +34,11 @@ export default function productDetail(state = intialState, action) {
       return {
         ...state,
         amenities: action.amenities,
+      };
+    case RECEIVE_REVIEWS:
+      return {
+        ...state,
+        reviews: action.reviews,
       };
     default:
       return state;

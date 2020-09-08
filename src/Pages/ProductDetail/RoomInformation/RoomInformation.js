@@ -7,6 +7,7 @@ import BedType from "./BedType/BedType";
 import Description from "./Description/Description";
 import Amenities from "./Amenities/Amenities";
 import DayPicker from "./DayPicker/DayPicker";
+import Reservation from "./Reservation/Reservation";
 
 export default function RoomInformation() {
   const { roomInfo } = useSelector(({ productDetail }) => ({
@@ -39,7 +40,7 @@ export default function RoomInformation() {
         <Amenities />
         <DayPicker />
       </InformationContainer>
-      <Reservation></Reservation>
+      <Reservation />
     </RoomInformationContainer>
   );
 }
@@ -54,15 +55,4 @@ const RoomInformationContainer = styled.section`
 
 const InformationContainer = styled.article`
   width: 60%;
-`;
-
-const Reservation = styled.article`
-  position: sticky;
-  top: 170px;
-  width: 35%;
-  height: 30vh;
-  margin-left: 5%;
-  border: ${({ theme }) => theme.borderSet};
-  border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 `;

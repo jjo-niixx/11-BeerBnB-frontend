@@ -12,14 +12,12 @@ import "react-dates/lib/css/_datepicker.css";
 import Title from "../../ProductDetailComponent/Title";
 import mixin from "../../../../Styles/mixin";
 
-function DayPicker({}) {
-  const {
-    dateRange: { startDate, endDate },
-    focusedInput,
-  } = useSelector(({ dayPicker }) => ({
+function DayPicker() {
+  const { dateRange, focusedInput } = useSelector(({ dayPicker }) => ({
     dateRange: dayPicker.dateRange,
     focusedInput: dayPicker.focusedInput,
   }));
+  const { startDate, endDate } = dateRange;
 
   const { roomInfo } = useSelector(({ productDetail }) => ({
     roomInfo: productDetail.roomInfo,

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ReviewInfo from "../../ProductDetailComponent/ReviewInfo";
 import InteractionBtn from "./InteractionBtn";
 import mixin from "../../../../Styles/mixin";
 import Svg from "../../SVG/ProductDetailSvg";
@@ -8,11 +9,14 @@ function SubTitle({ address }) {
   const { rightArrow } = Svg;
   return (
     <SubTitleContainer>
-      <Location>
-        <span>{address}</span>
-        <SvgWrapper>{rightArrow}</SvgWrapper>
-        <span>숙소</span>
-      </Location>
+      <Information>
+        <ReviewInfo noMargin={true} />
+        <Location>
+          <span>{address}</span>
+          <SvgWrapper>{rightArrow}</SvgWrapper>
+          <span>숙소</span>
+        </Location>
+      </Information>
       <InteractionArea>
         {BTN_NAME.map((el) => (
           <InteractionBtn btnName={el} key={el} />
@@ -24,12 +28,19 @@ function SubTitle({ address }) {
 
 export default SubTitle;
 
+const BTN_NAME = ["공유하기", "저장"];
+
 const SubTitleContainer = styled.div`
   ${mixin.flexSet("row", "space-between")}
 `;
 
+const Information = styled.div`
+  ${mixin.flexSet("row", "space-between")}
+`;
+
 const Location = styled.div`
-  ${mixin.flexSet()}
+  ${mixin.flexSet("row", "space-between")}
+  margin-left: 10px;
   font-size: 14px;
   color: ${(props) => props.theme.fontColorGray};
 
@@ -50,5 +61,3 @@ const InteractionArea = styled.div`
   ${mixin.flexSet()}
   height: 100%;
 `;
-
-const BTN_NAME = ["공유하기", "저장"];
