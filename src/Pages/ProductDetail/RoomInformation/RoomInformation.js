@@ -5,6 +5,7 @@ import RoomCondition from "./RoomCondition/RoomCondition";
 import BedType from "./BedType/BedType";
 import Description from "./Description/Description";
 import Amenities from "./Amenities/Amenities";
+import DayPickerContainer from "../../../container/DayPickerContainer";
 
 export default function RoomInformation({
   title,
@@ -24,6 +25,7 @@ export default function RoomInformation({
         <Description description={description} />
         <BedType bedRoom={bedRoom} bedType={bedType} />
         <Amenities amenities={amenities} />
+        <DayPickerContainer />
       </InformationContainer>
       <Reservation></Reservation>
     </RoomInformationContainer>

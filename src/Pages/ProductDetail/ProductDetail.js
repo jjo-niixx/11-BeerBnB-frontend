@@ -48,6 +48,11 @@ export default function ProductDetail() {
         bedType={bedtype}
         amenities={amenity_list}
       />
+      <ToKnowList
+        rules={rules_of_use}
+        healthAndSafety={health_and_safety}
+        refundPolicy={refund_policy}
+      />
     </Main>
   );
 }
