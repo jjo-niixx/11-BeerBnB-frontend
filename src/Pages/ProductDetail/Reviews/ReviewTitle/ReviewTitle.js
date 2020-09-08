@@ -1,5 +1,5 @@
 import React from "react";
-import useReviewData from "../ReviewModule/useReviewData";
+import useReviewData from "../../hooks/useReviewData";
 import styled, { css } from "styled-components";
 import Svg from "../../SVG/ProductDetailSvg";
 import mixin from "../../../../Styles/mixin";

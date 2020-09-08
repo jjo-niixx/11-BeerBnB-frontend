@@ -30,10 +30,6 @@ function DayPicker() {
 
   const onFocusChange = (focusedInput) => dispatch(focusChange(focusedInput));
 
-  const formatedStartDate = moment(startDate).format("YYYY-MM-DD");
-  const formatedEndDate = moment(endDate).format("YYYY-DD-MM");
-  // 추후 formatedStartDate와 formatedEndDate 통해서 엔드포인트 호출하는 로직 구성 예정
-
   const calcDate = moment(endDate).diff(startDate, "days");
 
   const location = roomInfo.address?.slice(0, roomInfo.address.indexOf(","));

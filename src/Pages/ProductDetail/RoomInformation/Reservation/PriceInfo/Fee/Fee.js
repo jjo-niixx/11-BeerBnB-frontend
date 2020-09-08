@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import mixin from "../../../../../../Styles/mixin";
 
-function Fee({ title, price: { serviceFee, nightsFee } }) {
+function Fee({ title, serviceFee, nightsFee }) {
   return (
     <Container>
       <div>{title}</div>

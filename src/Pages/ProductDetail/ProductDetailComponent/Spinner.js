@@ -1,9 +1,13 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import Svg from "../SVG/ProductDetailSvg";
 
-function Spinner() {
-  return <Container>{Svg.spinner}</Container>;
+function Spinner({ onClick, fixed }) {
+  return (
+    <Container onClick={onClick} fixed={fixed}>
+      {Svg.spinner}
+    </Container>
+  );
 }
 
 export default Spinner;
@@ -27,5 +31,10 @@ const Container = styled.div`
     height: 100px;
     z-index: 999;
     animation: ${spin} 800ms infinite linear;
+    ${({ fixed }) =>
+      fixed &&
+      css`
+        position: fixed;
+      `}
   }
 `;

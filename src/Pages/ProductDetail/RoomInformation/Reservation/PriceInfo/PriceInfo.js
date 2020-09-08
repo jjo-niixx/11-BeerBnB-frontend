@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import moment from "moment";
 import Fee from "./Fee/Fee";
 import mixin from "../../../../../Styles/mixin";
 
-function PriceInfo({ dayPrice }) {
+function PriceInfo({
+  totalPrice,
+  priceInfo: { oneDayPrice, serviceFee, nightsFee },
+}) {
   const { dateRange } = useSelector(({ dayPicker }) => ({
     dateRange: dayPicker.dateRange,
   }));
@@ -14,40 +17,24 @@ function PriceInfo({ dayPrice }) {
 
   const numberOfNights = moment(endDate).diff(startDate, "days");
 
-  const [price, setPrice] = useState({
-    oneDayPrice: dayPrice,
-    serviceFee: 0,
-    nightsFee: 0,
-  });
-  const { oneDayPrice, serviceFee, nightsFee } = price;
-
-  useEffect(() => {
-    const totalSleepPrice = convertedOneDayPrice * numberOfNights;
-    const serviceFee = totalSleepPrice * 0.8;
-    const nightsFee = totalSleepPrice * 0.3;
-    const newPrice = {
-      ...price,
-      serviceFee,
-      nightsFee,
-    };
-    setPrice(newPrice);
-  }, [endDate]);
-
-  const convertedOneDayPrice = Number(oneDayPrice.replace(",", ""));
-
   return (
     <Container>
       <Notification>예약 확정 전에는 요금이 청구되지 않습니다.</Notification>
       <Price>
         <div>{`₩ ${oneDayPrice} X ${numberOfNights}박`}</div>
-        <div>{`₩ ${convertedOneDayPrice * numberOfNights}`}</div>
+        <div>{`₩ ${oneDayPrice * numberOfNights}`}</div>
       </Price>
       {FEES.map((el) => (
-        <Fee key={el} title={el} price={price} />
+        <Fee
+          key={el}
+          title={el}
+          serviceFee={serviceFee}
+          nightsFee={nightsFee}
+        />
       ))}
       <TotalPrice>
         <div>총 합계</div>
-        <div>{`₩ ${convertedOneDayPrice + serviceFee + nightsFee}`}</div>
+        <div>{`₩ ${totalPrice}`}</div>
       </TotalPrice>
     </Container>
   );

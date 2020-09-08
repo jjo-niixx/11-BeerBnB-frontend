@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AVERAGE_TITLE } from "../constants";
 import { useReviewModal } from "../hooks/review";
-import useReviewData from "./ReviewModule/useReviewData";
+import useReviewData from "../hooks/useReviewData";
 import ReviewTitle from "./ReviewTitle/ReviewTitle";
 import Average from "./Average/Average";
 import ReviewItems from "./ReviewItems/ReviewItems";

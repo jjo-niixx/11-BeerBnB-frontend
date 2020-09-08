@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { datesChange } from "../../../../modules/ProducDetail/dayPicker";
 import { DateRangePicker } from "react-dates";
+import { BOOKING_API } from "../../../../config";
+import { useParams } from "react-router-dom";
+import useBooking from "../../hooks/useBooking";
 import moment from "moment";
 import Title from "../../ProductDetailComponent/Title";
 import ReviewInfo from "../../ProductDetailComponent/ReviewInfo";
@@ -10,18 +13,69 @@ import PriceInfo from "./PriceInfo/PriceInfo";
 import mixin from "../../../../Styles/mixin";
 
 export default function Reservation() {
+  const { id } = useParams();
   const [focusedInput, setFocusedInput] = useState(null);
   const { dateRange } = useSelector(({ dayPicker }) => ({
     dateRange: dayPicker.dateRange,
   }));
   const { startDate, endDate } = dateRange;
   const dateSelected = startDate && endDate;
+  const { price } = useSelector(({ productList }) => {
+    const nowIdx = id - 1;
+    return {
+      price: productList.roomsInfo?.rooms_list?.[nowIdx]?.price,
+    };
+  });
+  const [priceInfo, setPrice] = useState({
+    oneDayPrice: Number(price),
+    serviceFee: Number(price) * 0.08,
+    nightsFee: Math.ceil(Number(price) * 0.07),
+  });
+  const [bookingStat, attempBooking, confirmBooking] = useBooking();
+
   const dispatch = useDispatch();
-  const title = dateSelected
-    ? `${ONEDAY_PRICE} / 박`
-    : "요금을 확인하려면 날짜를 입력하세요.";
   const onDatesChange = ({ startDate, endDate }) =>
     dispatch(datesChange({ startDate, endDate }));
+
+  const _startDate = moment(startDate).format("YYYY-MM-DD");
+  const _endDate = moment(endDate).format("YYYY-MM-DD");
+  const numberOfNights = moment(endDate).diff(startDate, "days");
+  const { oneDayPrice, serviceFee, nightsFee } = priceInfo;
+  const totalPrice = oneDayPrice * numberOfNights + serviceFee + nightsFee;
+  const title = dateSelected
+    ? `${oneDayPrice} / 박`
+    : "요금을 확인하려면 날짜를 입력하세요.";
+
+  const booking = async () => {
+    await fetch(BOOKING_API, {
+      method: "POST",
+      headers: {
+        Authorization: sessionStorage.getItem("access_token")
+          ? sessionStorage.getItem("access_token")
+          : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFpcmJuYjFAdGVzdC5jb20ifQ.0guG2ULvWdSbDME3sO5qEzDHTd2-VAdCJ54LVmaOxWY",
+        //테스트 위해 디폴트 토큰 설정 추후 삭제 예정
+      },
+      body: JSON.stringify({
+        room_id: id,
+        room: id,
+        price: Number(price),
+        check_in: _startDate,
+        check_out: _endDate,
+        adult: "4",
+        children: "0",
+        infants: "0",
+        payment_method: "체크 카드",
+        total_price: totalPrice,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        const message = res.message;
+        if (message === "SUCCESS") {
+          attempBooking();
+        }
+      });
+  };
 
   return (
     <Container>
@@ -52,18 +106,17 @@ export default function Reservation() {
           />
         </DateRangeContainer>
         <div>
-          <ReservationBtn>
+          <ReservationBtn onClick={booking}>
             <div>{dateSelected ? "예약하기" : "예약 가능 여부 보기"}</div>
           </ReservationBtn>
-          {dateSelected && <PriceInfo dayPrice={ONEDAY_PRICE} />}
+          {dateSelected && (
+            <PriceInfo totalPrice={totalPrice} priceInfo={priceInfo} />
+          )}
         </div>
       </Wrapper>
     </Container>
   );
 }
-
-const ONEDAY_PRICE = "78,000";
-// 나중에 1박 가격 백엔드에서 보내주는 로직 완성되면 스토어에 담아서 사용하는 방식으로 수정 예정
 
 const Container = styled.article`
   width: 35%;
@@ -89,10 +142,12 @@ const Header = styled.header`
 `;
 
 const DateRangeContainer = styled.div`
+  position: relative;
   border: ${({ theme }) => theme.borderSet};
   border-radius: 12px;
   padding: 3px;
-  z-index: 100000000;
+  z-index: 9999999999999;
+
   .CalendarDay {
     border: none;
     font-size: 14px;
@@ -153,4 +208,5 @@ const ReservationBtn = styled.div`
   color: white;
   font-size: 16px;
   font-weight: ${({ theme }) => theme.fontMedium};
+  cursor: pointer;
 `;

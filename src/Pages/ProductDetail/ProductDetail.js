@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import {
   receiveRoomInfo,
@@ -8,19 +8,24 @@ import {
 } from "../../modules/ProducDetail/productDetail";
 import { ROOM_INFO_API, REVIEWS_API } from "../../config";
 import { useReviewModal, useReviewList } from "./hooks/review";
+import useBooking from "./hooks/useBooking";
 import RoomIntroduce from "./RoomIntroduce/RoomIntroduce";
 import RoomInformation from "./RoomInformation/RoomInformation";
 import ToKnowList from "./ToKnowList/ToKnowList";
 import Reviews from "./Reviews/Reviews";
 import ReviewModal from "./Reviews/ReviewModal/ReviewModal";
+import Spinner from "./ProductDetailComponent/Spinner";
+import EasterEgg from "./easterEgg/EasterEgg";
 
 export default function ProductDetail({ match }) {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
 
+  const [bookingStat, _, confirmBooking] = useBooking();
   const [modalStatus] = useReviewModal();
-  const [_, onGetReviewList] = useReviewList();
+  const [__, onGetReviewList] = useReviewList();
+
   const dispatch = useDispatch();
   const onReceiveRoomInfo = (roomInfo) => dispatch(receiveRoomInfo(roomInfo));
   const onReceiveAmenities = (amenities) =>
@@ -56,6 +61,11 @@ export default function ProductDetail({ match }) {
         <Reviews />
       </Main>
       {modalStatus && <ReviewModal />}
+      {bookingStat === "ATTEMP" ? (
+        <Spinner onClick={confirmBooking} fixed />
+      ) : bookingStat === "CONFIRM" ? (
+        <EasterEgg />
+      ) : null}
     </>
   );
 }

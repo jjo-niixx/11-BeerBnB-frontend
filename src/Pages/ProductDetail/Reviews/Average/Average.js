@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useAverageData from "../ReviewModule/useAverageData";
+import useAverageData from "../../hooks/useAverageData";
 import mixin from "../../../../Styles/mixin";
 
 function Average({ title, modal }) {
