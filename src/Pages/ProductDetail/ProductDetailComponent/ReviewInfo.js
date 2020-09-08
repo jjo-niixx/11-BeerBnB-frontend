@@ -10,13 +10,13 @@ function ReviewInfo({ noMargin }) {
   }));
 
   const { avg } = reviews;
+
   const { rate_avg, review } = avg?.[0] || {};
-  const rateAvg = Number(rate_avg).toFixed(2);
 
   return (
     <Container>
       <div>{Svg.pinkStar}</div>
-      <RateAvg>{rateAvg}</RateAvg>
+      <RateAvg>{rate_avg}</RateAvg>
       <ReviewCount>{`(${review})`}</ReviewCount>
     </Container>
   );
@@ -31,6 +31,11 @@ const Container = styled.div`
 
   div:not(:last-of-type) {
     margin-right: 4px;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
   }
 `;
 

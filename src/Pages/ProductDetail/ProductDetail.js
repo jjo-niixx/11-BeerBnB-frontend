@@ -7,18 +7,24 @@ import {
   receiveReviews,
 } from "../../modules/ProducDetail/productDetail";
 import { ROOM_INFO_API, REVIEWS_API } from "../../config";
+import { useReviewModal, useReviewList } from "./hooks/review";
 import RoomIntroduce from "./RoomIntroduce/RoomIntroduce";
 import RoomInformation from "./RoomInformation/RoomInformation";
 import ToKnowList from "./ToKnowList/ToKnowList";
+import Reviews from "./Reviews/Reviews";
+import ReviewModal from "./Reviews/ReviewModal/ReviewModal";
 
 export default function ProductDetail({ match }) {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  const [modalStatus] = useReviewModal();
+  const [_, onGetReviewList] = useReviewList();
   const dispatch = useDispatch();
-
   const onReceiveRoomInfo = (roomInfo) => dispatch(receiveRoomInfo(roomInfo));
-
   const onReceiveAmenities = (amenities) =>
     dispatch(receiveAmenities(amenities));
-
   const onReceiveReviews = (reviews) => dispatch(receiveReviews(reviews));
 
   useEffect(() => {
@@ -31,17 +37,26 @@ export default function ProductDetail({ match }) {
         onReceiveRoomInfo(res.detail_list[0]);
         onReceiveAmenities(res.amenity_list);
       });
+
     fetch(`${REVIEWS_API}${id}`)
       .then((res) => res.json())
       .then((res) => onReceiveReviews(res));
+
+    fetch(`${REVIEWS_API}${id}?offset=0&limit=10`)
+      .then((res) => res.json())
+      .then((res) => onGetReviewList(res));
   }, [match.params.id]);
 
   return (
-    <Main>
-      <RoomIntroduce />
-      <RoomInformation />
-      <ToKnowList />
-    </Main>
+    <>
+      <Main>
+        <RoomIntroduce />
+        <RoomInformation />
+        <ToKnowList />
+        <Reviews />
+      </Main>
+      {modalStatus && <ReviewModal />}
+    </>
   );
 }
 

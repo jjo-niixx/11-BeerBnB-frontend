@@ -48,6 +48,7 @@ export default function Reservation() {
             endDatePlaceholderText={"체크아웃"}
             block
             noBorder
+            showClearDates
           />
         </DateRangeContainer>
         <div>
@@ -91,7 +92,7 @@ const DateRangeContainer = styled.div`
   border: ${({ theme }) => theme.borderSet};
   border-radius: 12px;
   padding: 3px;
-
+  z-index: 100000000;
   .CalendarDay {
     border: none;
     font-size: 14px;

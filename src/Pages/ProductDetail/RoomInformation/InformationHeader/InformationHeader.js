@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { AVATAR_URL } from "../../constants";
 import Title from "../../ProductDetailComponent/Title";
 import mixin from "../../../../Styles/mixin";
 
@@ -59,6 +60,3 @@ const Avatar = styled.img`
   object-fit: cover;
   border-radius: 50%;
 `;
-
-const AVATAR_URL = "/images/ProductDetail/wecodeimg.png";
-// 호스트 개인 정보라서 크롤링하기 제한되어서 위코드 아바타로 대체
