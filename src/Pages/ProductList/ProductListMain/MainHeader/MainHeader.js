@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import moment from "moment";
 import styled from "styled-components";
 import FilterToggle from "./FilterToggle/FilterToggle";
 import RefundPolicyModal from "./FilterToggle/FilterModal/RefundPolicyModal/RefundPolicyModal";
@@ -7,10 +9,18 @@ import PaymentModal from "./FilterToggle/FilterModal/PaymentModal/PaymentModal";
 import InstantModal from "./FilterToggle/FilterModal/InstantModal/InstantModal";
 
 export default function MainHeader() {
+  const { dateRange } = useSelector(({ dayPicker }) => ({
+    dateRange: dayPicker.dateRange,
+  }));
+  const { startDate, endDate } = dateRange;
+  const [start, end] = [
+    moment(startDate).format("MM-DD").split("-"),
+    moment(endDate).format("MM-DD").split("-"),
+  ];
   return (
     <article>
-      <StayPeriod>300개 이상의 숙소 · 9월 20일 - 9월 26일</StayPeriod>
-      <StaySpotTitle>서울의 숙소</StaySpotTitle>
+      <StayPeriod>{`300개 이상의 숙소 · ${start[0]}월 ${start[1]}일 - ${end[0]}월 ${end[1]}일`}</StayPeriod>
+      <StaySpotTitle>제주도의 숙소</StaySpotTitle>
       <HeaderOptionContainer>
         {FILTER_INFO_LIST.map((filterInfo, index) => {
           return (

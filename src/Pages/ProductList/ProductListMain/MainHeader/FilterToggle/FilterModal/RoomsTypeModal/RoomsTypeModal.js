@@ -1,17 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateCheckedTypes } from "../../../../../../../modules/ProductList/productList";
-import ProductListSvg from "../../../../../ProductListSvg/ProductListSvg";
+import { useGetItemData } from "../../../../../hooks/useGetRoomsData";
+import ProductListSvg from "../../../../../SVG/ProductListSvg";
 import mixin from "../../../../../../../Styles/mixin";
 
 export default function RoomsTypeModal() {
   const dispatch = useDispatch();
-  const { checkedRoomTypes } = useSelector(
-    ({ productList: { checkedRoomTypes } }) => ({
-      checkedRoomTypes: checkedRoomTypes,
-    })
-  );
+  const { checkedRoomTypes } = useGetItemData("checkedRoomTypes");
 
   const onUpdateCheckedTypes = (id) => {
     const isOwnId = checkedRoomTypes.includes(id);

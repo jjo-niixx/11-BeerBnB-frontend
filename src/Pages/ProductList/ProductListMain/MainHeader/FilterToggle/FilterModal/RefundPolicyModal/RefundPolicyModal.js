@@ -1,17 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { refundToggle } from "../../../../../../../modules/ProductList/productList";
+import { useGetItemData } from "../../../../../hooks/useGetRoomsData";
 import styled from "styled-components";
 import mixin from "../../../../../../../Styles/mixin";
 import MovingButton from "../MovingButton/MovingButton";
 
 export default function RefundPolicyModal() {
   const dispatch = useDispatch();
-  const { isRefundChecked } = useSelector(
-    ({ productList: { isRefundChecked } }) => ({
-      isRefundChecked: isRefundChecked,
-    })
-  );
+  const { isRefundChecked } = useGetItemData("isRefundChecked");
   const onRefundToggle = () => dispatch(refundToggle(!isRefundChecked));
 
   return (

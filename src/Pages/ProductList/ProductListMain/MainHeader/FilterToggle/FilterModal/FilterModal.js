@@ -1,26 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import useGetRoomsData from "../../../../hooks/useGetRoomsData";
 import styled from "styled-components";
 import ModalBottom from "./ModalBottom/ModalBottom";
 import theme from "../../../../../../Styles/Theme";
 
 export default function FilterModal({ filterInfo, index }) {
-  const { isRefundChecked, checkedRoomTypes, isInstantChecked } = useSelector(
-    ({
-      productList: { isRefundChecked, checkedRoomTypes, isInstantChecked },
-    }) => ({
-      isRefundChecked: isRefundChecked,
-      checkedRoomTypes: checkedRoomTypes,
-      isInstantChecked: isInstantChecked,
-    })
-  );
+  const roomsData = useGetRoomsData();
+  const { isRefundChecked, checkedRoomTypes, isInstantChecked } = roomsData;
   const { HeaderModal, isClearBtnOn, title } = filterInfo;
   const isOwnTitle = (name) => {
     switch (name) {
       case "유연한 환불 정책":
         return isRefundChecked;
       case "숙소 유형":
-        return checkedRoomTypes;
+        return checkedRoomTypes.length;
       case "즉시 예약":
         return isInstantChecked;
       default:
@@ -45,7 +38,7 @@ export default function FilterModal({ filterInfo, index }) {
 
 const ModalContainer = styled.div`
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   min-width: 250px;
   border: ${theme.borderSet};
   border-radius: 10px;

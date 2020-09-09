@@ -5,6 +5,10 @@ const CHANGE_PAGE = "productList/CHANGE_PAGE";
 const REFUND_TOGGLE = "productList/REFUND_TOGGLE";
 const UPDATE_CHECKEDTYPES = "productList/UPDATE_CHECKEDTYPES";
 const INSTANT_TOGGLE = "productList/INSTANT_TOGGLE";
+const CHANGE_HOVER = "productList/CHANGE_HOVER";
+const CHANGE_LABEL = "productList/CHANGE_LABEL";
+const MAP_OPEN_TOGGLE = "productList/MAP_OPEN_TOGGLE";
+const GET_REVIEWINFO = "productList/GET_REVIEWINFO";
 
 export const filterToggle = (activeFilter) => ({
   type: FILTER_TOGGLE,
@@ -41,6 +45,26 @@ export const instantToggle = (isInstantChecked) => ({
   isInstantChecked,
 });
 
+export const changeHover = (hoveredAt) => ({
+  type: CHANGE_HOVER,
+  hoveredAt,
+});
+
+export const changeLabel = (clickedMapLabel) => ({
+  type: CHANGE_LABEL,
+  clickedMapLabel,
+});
+
+export const mapOpenToggle = (isMapOpen) => ({
+  type: MAP_OPEN_TOGGLE,
+  isMapOpen,
+});
+
+export const getReviewInfo = (reviewInfo) => ({
+  type: GET_REVIEWINFO,
+  reviewInfo,
+});
+
 const intialState = {
   activeFilter: null,
   roomsInfo: [],
@@ -52,6 +76,10 @@ const intialState = {
   isRefundChecked: false,
   checkedRoomTypes: [],
   isInstantChecked: false,
+  hoveredAt: null,
+  clickedMapLabel: null,
+  isMapOpen: true,
+  reviewInfo: {},
 };
 
 export default function productList(state = intialState, action) {
@@ -90,6 +118,26 @@ export default function productList(state = intialState, action) {
       return {
         ...state,
         isInstantChecked: action.isInstantChecked,
+      };
+    case CHANGE_HOVER:
+      return {
+        ...state,
+        hoveredAt: action.hoveredAt,
+      };
+    case CHANGE_LABEL:
+      return {
+        ...state,
+        clickedMapLabel: action.clickedMapLabel,
+      };
+    case GET_REVIEWINFO:
+      return {
+        ...state,
+        reviewInfo: action.reviewInfo,
+      };
+    case MAP_OPEN_TOGGLE:
+      return {
+        ...state,
+        isMapOpen: action.isMapOpen,
       };
     default:
       return state;

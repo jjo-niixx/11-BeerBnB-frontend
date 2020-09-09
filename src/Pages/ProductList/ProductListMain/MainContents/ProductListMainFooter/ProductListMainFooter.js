@@ -1,18 +1,18 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { changePage } from "../../../../../modules/ProductList/productList";
+import { useGetItemData } from "../../../hooks/useGetRoomsData";
 import styled from "styled-components";
 import ProductListPageBtn from "./ProductListPageBtn/ProductListPageBtn";
 import FooterNextPrevBtnSvg from "./FooterNextPrevBtn/FooterNextPrevBtn";
-import ProductListSvg from "../../../ProductListSvg/ProductListSvg";
+import ProductListSvg from "../../../SVG/ProductListSvg";
 import mixin from "../../../../../Styles/mixin";
 
 export default function ProductListMainFooter() {
   const dispatch = useDispatch();
   const onchangePage = (page) => dispatch(changePage(page));
-  const { currentPage } = useSelector(({ productList: { currentPage } }) => ({
-    currentPage: currentPage,
-  }));
+  const { currentPage } = useGetItemData("currentPage");
+  const tempData = [1, 2, 3, 4, 5];
 
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === tempData[tempData.length - 1];
@@ -45,15 +45,15 @@ export default function ProductListMainFooter() {
           />
         )}
       </WrapFooterPageBtn>
-      <PageDescription>숙소 300개 이상 중 1-20</PageDescription>
+      <PageDescription>{`숙소 300개 이상 중 ${currentPage * 10 - 9}-${
+        currentPage * 10
+      }`}</PageDescription>
       <AddDescription>
         추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.
       </AddDescription>
     </FooterContainer>
   );
 }
-
-const tempData = [1, 2, 3, 4, 5];
 
 const FooterContainer = styled.div`
   ${mixin.flexSet("column")};

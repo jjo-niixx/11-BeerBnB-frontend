@@ -9,6 +9,7 @@ import ProductListSvg from "../../../SVG/ProductListSvg";
 import { BtnSvgContainer } from "./MainItemImgSlide/ImgSlideMoveBtn/ImgSlideMoveBtn";
 import { REVIEWS_API } from "../../../../../config";
 import mixin from "../../../../../Styles/mixin";
+
 export default function MainContentsItems({ roomInfo }) {
   const [reviewData, setReviewData] = useState({});
   const dispatch = useDispatch();
@@ -34,11 +35,13 @@ export default function MainContentsItems({ roomInfo }) {
   const newAmenity = amenity.slice(0, 4).join(" · ");
   const newPrice = price * nights + price * 0.06 + price * 0.07;
   const history = useHistory();
+
   useEffect(() => {
     fetch(`${REVIEWS_API}/${id}`)
       .then((res) => res.json())
       .then((res) => setReviewData(res));
   }, []);
+
   return (
     <ItemsContainer
       onMouseEnter={() => dispatch(changeHover(id))}
@@ -164,6 +167,7 @@ const TotalPrice = styled.div`
     cursor: pointer;
   }
 `;
+
 const SuperHost = styled.div`
   position: absolute;
   left: 10px;

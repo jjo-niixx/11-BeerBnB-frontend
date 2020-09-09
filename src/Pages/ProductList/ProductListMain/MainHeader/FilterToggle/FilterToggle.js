@@ -1,14 +1,13 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filterToggle } from "../../../../../modules/ProductList/productList";
+import { useGetItemData } from "../../../hooks/useGetRoomsData";
 import styled from "styled-components";
 import FilterModal from "./FilterModal/FilterModal";
 
 export default function FilterToggle({ filterInfo, index }) {
   const dispatch = useDispatch();
-  const { activeFilter } = useSelector(({ productList: { activeFilter } }) => ({
-    activeFilter: activeFilter,
-  }));
+  const { activeFilter } = useGetItemData("activeFilter");
 
   const onFilterToggle = (index) => dispatch(filterToggle(index));
 

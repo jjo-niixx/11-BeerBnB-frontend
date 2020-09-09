@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import mixin from "../../../../../../../Styles/mixin";
-import ProductListSvg from "../../../../../ProductListSvg/ProductListSvg";
+import ProductListSvg from "../../../../../SVG/ProductListSvg";
 
 export default function MovingButton({ onCheckHandler, isChecked }) {
   const [isItemFocused, setIsItemFocused] = useState(false);

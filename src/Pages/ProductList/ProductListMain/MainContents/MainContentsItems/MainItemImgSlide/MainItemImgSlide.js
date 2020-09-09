@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ImgSlideMoveBtn from "./ImgSlideMoveBtn/ImgSlideMoveBtn";
-import btnSvg from "../../../../ProductListSvg/ProductListSvg";
+import btnSvg from "../../../../SVG/ProductListSvg";
 import CarouselSlide from "./CarouselSlide/CarouselSlide";
 import mixin from "../../../../../../Styles/mixin";
 

@@ -1,17 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useGetItemData } from "../../hooks/useGetRoomsData";
 import styled from "styled-components";
 import MainContentsItems from "./MainContentsItems/MainContentsItems";
 import ProductListMainFooter from "./ProductListMainFooter/ProductListMainFooter";
+import MiniContents from "./MiniContents/MiniContents";
 import mixin from "../../../../Styles/mixin";
 
 export default function MainContents() {
-  const { roomsInfo, currentPage } = useSelector(
-    ({ productList: { roomsInfo, currentPage } }) => ({
-      roomsInfo: roomsInfo,
-      currentPage: currentPage,
-    })
-  );
+  const { roomsInfo } = useGetItemData("roomsInfo");
+  const { currentPage } = useGetItemData("currentPage");
+  const { isMapOpen } = useGetItemData("isMapOpen");
+
   return (
     <article>
       <ContentsHeader>
@@ -30,9 +29,13 @@ export default function MainContents() {
           </FilterRecommend>
         </WrapTripDescription>
       </ContentsHeader>
-      {roomsInfo.rooms_list?.map((roomInfo, index) => (
-        <MainContentsItems key={roomInfo.id + index} roomInfo={roomInfo} />
-      ))}
+      {roomsInfo.rooms_list?.map((roomInfo, index) =>
+        isMapOpen ? (
+          <MainContentsItems key={roomInfo.id + index} roomInfo={roomInfo} />
+        ) : (
+          <MiniContents key={roomInfo.id + index} roomInfo={roomInfo} />
+        )
+      )}
       <ProductListMainFooter currentPage={currentPage} roomsInfo={roomsInfo} />
     </article>
   );

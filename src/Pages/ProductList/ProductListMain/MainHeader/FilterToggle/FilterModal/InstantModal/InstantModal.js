@@ -1,18 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { instantToggle } from "../../../../../../../modules/ProductList/productList";
+import { useGetItemData } from "../../../../../hooks/useGetRoomsData";
 import styled from "styled-components";
 import mixin from "../../../../../../../Styles/mixin";
 import MovingButton from "../MovingButton/MovingButton";
 
 export default function InstantModal() {
   const dispatch = useDispatch();
-  const { isInstantChecked } = useSelector(
-    ({ productList: { isInstantChecked } }) => ({
-      isInstantChecked: isInstantChecked,
-    })
-  );
-  const onInstantToggle = (isInstantChecked) => {
+  const { isInstantChecked } = useGetItemData("isInstantChecked");
+  const onInstantToggle = () => {
     dispatch(instantToggle(!isInstantChecked));
   };
   return (
