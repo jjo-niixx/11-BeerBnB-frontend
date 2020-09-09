@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FooterSvg from "./FooterSvg";
@@ -10,9 +10,9 @@ export default function Footer() {
         <Section>
           <InfoHead>소개</InfoHead>
           <InfoListGroup>
-            {infoListGroup.information.map((el) => {
+            {infoListGroup.information.map((el, idx) => {
               return (
-                <Link to="/">
+                <Link key={idx} to="/">
                   <InfoList>{el}</InfoList>
                 </Link>
               );
@@ -22,9 +22,9 @@ export default function Footer() {
         <Section>
           <InfoHead>커뮤니티</InfoHead>
           <InfoListGroup>
-            {infoListGroup.communinty.map((el) => {
+            {infoListGroup.communinty.map((el, idx) => {
               return (
-                <Link to="/">
+                <Link key={idx} to="/">
                   <InfoList>{el}</InfoList>
                 </Link>
               );
@@ -34,9 +34,9 @@ export default function Footer() {
         <Section>
           <InfoHead>호스팅하기</InfoHead>
           <InfoListGroup>
-            {infoListGroup.hosting.map((el) => {
+            {infoListGroup.hosting.map((el, idx) => {
               return (
-                <Link to="/">
+                <Link key={idx} to="/">
                   <InfoList>{el}</InfoList>
                 </Link>
               );
@@ -46,9 +46,9 @@ export default function Footer() {
         <Section>
           <InfoHead>에어비앤비 지원</InfoHead>
           <InfoListGroup>
-            {infoListGroup.support.map((el) => {
+            {infoListGroup.support.map((el, idx) => {
               return (
-                <Link to="/">
+                <Link key={idx} to="/">
                   <InfoList>{el}</InfoList>
                 </Link>
               );
