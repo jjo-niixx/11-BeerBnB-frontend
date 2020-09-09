@@ -29,7 +29,7 @@ export default function Nav() {
         </FormContainer>
         <ReducedSearch>
           <SearchTxt>검색 시작하기</SearchTxt>
-          <SearchBtn width="32px" height="32px" right="8px">
+          <SearchBtn top="7px" right="8px" width="32px" height="32px">
             {NavSvg.searchBtnSmall}
           </SearchBtn>
         </ReducedSearch>
@@ -218,7 +218,7 @@ const SearchTxt = styled.div`
   padding: 0 16px;
 `;
 
-const SearchBtn = styled.button`
+const SearchBtn = styled.div`
   position: absolute;
   top: ${({ top }) => top};
   right: ${({ right }) => right};
