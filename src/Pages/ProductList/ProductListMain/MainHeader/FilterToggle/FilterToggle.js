@@ -1,141 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { filterToggle } from "../../../../../modules/ProductList/productList";
 import styled from "styled-components";
 import FilterModal from "./FilterModal/FilterModal";
 
-export default function FilterToggle({
-  filterInfo,
-  active,
-  index,
-  onClick,
-  updateCheckedList,
-  checkedOptions,
-  onFilterClick,
-}) {
-  const [isRefundChecked, setIsRefundChecked] = useState(false);
-  const [checkedRoomTypeList, setCheckedRoomTypeList] = useState([]);
-  const [isInstantChecked, setIsInstantChecked] = useState(false);
-  const [activeCleanBtnList, setActiveCleanBtnList] = useState([]);
+export default function FilterToggle({ filterInfo, index }) {
+  const dispatch = useDispatch();
+  const { activeFilter } = useSelector(({ productList: { activeFilter } }) => ({
+    activeFilter: activeFilter,
+  }));
+
+  const onFilterToggle = (index) => dispatch(filterToggle(index));
+
   const { title, type } = filterInfo;
-
-  useEffect(() => {
-    const isOwnRefund = activeCleanBtnList.includes("refundPolicy");
-
-    if (isRefundChecked && !isOwnRefund) {
-      setActiveCleanBtnList([...activeCleanBtnList, "refundPolicy"]);
-    }
-    if (!isRefundChecked && isOwnRefund) {
-      const newList = activeCleanBtnList.filter(
-        (acitvebtn) => acitvebtn !== "refundPolicy"
-      );
-
-      setActiveCleanBtnList(newList);
-    }
-  }, [isRefundChecked, activeCleanBtnList]);
-
-  useEffect(() => {
-    const isOwnRoomType = activeCleanBtnList.includes("roomType");
-    const listLen = checkedRoomTypeList.length;
-
-    if (listLen > 0 && !isOwnRoomType) {
-      setActiveCleanBtnList([...activeCleanBtnList, "roomType"]);
-    }
-    if (listLen === 0 && isOwnRoomType) {
-      const newList = activeCleanBtnList.filter(
-        (acitvebtn) => acitvebtn !== "roomType"
-      );
-
-      setActiveCleanBtnList(newList);
-    }
-  }, [checkedRoomTypeList, activeCleanBtnList]);
-
-  useEffect(() => {
-    const isOwnInstant = activeCleanBtnList.includes("instantReserve");
-
-    if (isInstantChecked && !isOwnInstant) {
-      setActiveCleanBtnList([...activeCleanBtnList, "instantReserve"]);
-    }
-    if (!isInstantChecked && isOwnInstant) {
-      const newList = activeCleanBtnList.filter(
-        (acitvebtn) => acitvebtn !== "instantReserve"
-      );
-
-      setActiveCleanBtnList(newList);
-    }
-  }, [isInstantChecked, activeCleanBtnList]);
-
-  const onCheckRefundPolicy = () => {
-    setIsRefundChecked(!isRefundChecked);
-  };
-
-  const roomTypeFilterHandler = (id) => {
-    const isOwnId = checkedRoomTypeList.includes(id);
-
-    setCheckedRoomTypeList(
-      isOwnId
-        ? checkedRoomTypeList.filter((checked) => checked !== id)
-        : [...checkedRoomTypeList, id]
-    );
-  };
-
-  const onCheckInstantReserve = () => {
-    setIsInstantChecked(!isInstantChecked);
-  };
-
-  const unCheckHandler = (name) => {
-    switch (name) {
-      case "유연한 환불 정책":
-        setIsRefundChecked(!isRefundChecked);
-        break;
-      case "숙소 유형":
-        setCheckedRoomTypeList([]);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const saveCheckedList = (name) => {
-    switch (name) {
-      case "유연한 환불 정책":
-        updateCheckedList({
-          ...checkedOptions,
-          refund: isRefundChecked ? "on" : "",
-        });
-        break;
-      case "숙소 유형":
-        updateCheckedList({
-          ...checkedOptions,
-          home_type: checkedRoomTypeList,
-        });
-        break;
-      default:
-        break;
-    }
-  };
+  const active = index === activeFilter;
 
   return (
     <div>
-      <FilterToggleBtn active={active} onClick={onClick}>
+      <FilterToggleBtn
+        active={active}
+        onClick={(e) => {
+          e.stopPropagation();
+          if (active) onFilterToggle(null);
+          else onFilterToggle(index);
+        }}
+      >
         {title}
       </FilterToggleBtn>
       {type === "MODAL" && (
         <ModalWrapper>
-          {active && (
-            <FilterModal
-              index={index}
-              filterInfo={filterInfo}
-              isRefundChecked={isRefundChecked}
-              checkedRoomTypeList={checkedRoomTypeList}
-              isInstantChecked={isInstantChecked}
-              activeCleanBtnList={activeCleanBtnList}
-              onCheckRefundPolicy={onCheckRefundPolicy}
-              unCheckHandler={unCheckHandler}
-              roomTypeFilterHandler={roomTypeFilterHandler}
-              onCheckInstantReserve={onCheckInstantReserve}
-              saveCheckedList={saveCheckedList}
-              onFilterClick={onFilterClick}
-            />
-          )}
+          {active && <FilterModal index={index} filterInfo={filterInfo} />}
         </ModalWrapper>
       )}
     </div>

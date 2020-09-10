@@ -5,8 +5,8 @@ import MainItemImgSlide from "./MainItemImgSlide/MainItemImgSlide";
 import ProductListSvg from "../../../ProductListSvg/ProductListSvg";
 import { BtnSvgContainer } from "./MainItemImgSlide/ImgSlideMoveBtn/ImgSlideMoveBtn";
 
-export default function MainContentsItems({ roomsInfo }) {
-  const { image_url, price, address, title } = roomsInfo;
+export default function MainContentsItems({ roomInfo }) {
+  const { image_url, price, address, title } = roomInfo;
 
   return (
     <ItemsContainer>

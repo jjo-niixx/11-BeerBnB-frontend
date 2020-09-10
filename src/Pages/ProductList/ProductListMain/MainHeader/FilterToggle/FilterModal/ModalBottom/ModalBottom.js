@@ -1,31 +1,77 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  filterToggle,
+  refundToggle,
+  updateCheckedList,
+  updateCheckedTypes,
+} from "../../../../../../../modules/ProductList/productList";
 import mixin from "../../../../../../../Styles/mixin";
 
-export default function ModalBottom({
-  isClearBtnOn,
-  unCheckHandler,
-  title,
-  index,
-  isOwnTitle,
-  saveCheckedList,
-  onFilterClick,
-}) {
+export default function ModalBottom({ isClearBtnOn, title, isOwnTitle }) {
+  const dispatch = useDispatch();
+  const { isRefundChecked, checkedOptions, checkedRoomTypes } = useSelector(
+    ({
+      productList: { isRefundChecked, checkedOptions, checkedRoomTypes },
+    }) => ({
+      isRefundChecked: isRefundChecked,
+      checkedOptions: checkedOptions,
+      checkedRoomTypes: checkedRoomTypes,
+    })
+  );
+
+  const onUpdateChecked = (checkedList) =>
+    dispatch(updateCheckedList(checkedList));
+
+  const unCheckHandler = (name) => {
+    switch (name) {
+      case "유연한 환불 정책":
+        dispatch(refundToggle(!isRefundChecked));
+        break;
+      case "숙소 유형":
+        dispatch(updateCheckedTypes([]));
+        break;
+      default:
+        break;
+    }
+  };
+
+  const saveCheckedList = (name) => {
+    switch (name) {
+      case "유연한 환불 정책":
+        onUpdateChecked({
+          ...checkedOptions,
+          refund: isRefundChecked ? "on" : "",
+        });
+        break;
+      case "숙소 유형":
+        onUpdateChecked({
+          ...checkedOptions,
+          home_type: checkedRoomTypes,
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <BottomBox>
       <ButtonWrapper isClearBtnOn={isClearBtnOn}>
         {isClearBtnOn && (
           <CleanBtn
             onClick={() => unCheckHandler(title)}
-            disabled={!isOwnTitle}
+            disabled={!isOwnTitle(title)}
           >
             지우기
           </CleanBtn>
         )}
         <SaveBtn
           onClick={(e) => {
+            e.stopPropagation();
             saveCheckedList(title);
-            onFilterClick(e, index);
+            dispatch(filterToggle([]));
           }}
         >
           저장

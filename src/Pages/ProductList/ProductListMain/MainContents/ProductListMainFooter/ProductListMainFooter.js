@@ -1,48 +1,56 @@
-import React, { Component } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changePage } from "../../../../../modules/ProductList/productList";
 import styled from "styled-components";
 import ProductListPageBtn from "./ProductListPageBtn/ProductListPageBtn";
 import FooterNextPrevBtnSvg from "./FooterNextPrevBtn/FooterNextPrevBtn";
 import ProductListSvg from "../../../ProductListSvg/ProductListSvg";
 import mixin from "../../../../../Styles/mixin";
 
-export default class ProductListMainFooter extends Component {
-  render() {
-    const { currentPage, onChangePage } = this.props;
+export default function ProductListMainFooter() {
+  const dispatch = useDispatch();
+  const onchangePage = (page) => dispatch(changePage(page));
+  const { currentPage } = useSelector(({ productList: { currentPage } }) => ({
+    currentPage: currentPage,
+  }));
 
-    const isFirstPage = currentPage === 1;
-    const isLastPage = currentPage === tempData[tempData.length - 1];
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === tempData[tempData.length - 1];
 
-    return (
-      <FooterContainer>
-        <WrapFooterPageBtn>
-          {!isFirstPage && (
-            <FooterNextPrevBtnSvg
-              onClick={() => onChangePage(currentPage - 1)}
-              btnSvg={ProductListSvg.prevBtn}
-            />
-          )}
-          {tempData.map((pageNum) => (
-            <ProductListPageBtn
-              pageNum={pageNum}
-              key={pageNum}
-              onClick={() => onChangePage(pageNum)}
-              active={pageNum === currentPage}
-            />
-          ))}
-          {!isLastPage && (
-            <FooterNextPrevBtnSvg
-              onClick={() => onChangePage(currentPage + 1)}
-              btnSvg={ProductListSvg.nextBtn}
-            />
-          )}
-        </WrapFooterPageBtn>
-        <PageDescription>숙소 300개 이상 중 1-20</PageDescription>
-        <AddDescription>
-          추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.
-        </AddDescription>
-      </FooterContainer>
-    );
-  }
+  return (
+    <FooterContainer>
+      <WrapFooterPageBtn>
+        {!isFirstPage && (
+          <FooterNextPrevBtnSvg
+            onClick={() => {
+              onchangePage(currentPage - 1);
+            }}
+            btnSvg={ProductListSvg.prevBtn}
+          />
+        )}
+        {tempData.map((pageNum) => (
+          <ProductListPageBtn
+            pageNum={pageNum}
+            key={pageNum}
+            onClick={() => {
+              if (currentPage !== pageNum) onchangePage(pageNum);
+            }}
+            active={pageNum === currentPage}
+          />
+        ))}
+        {!isLastPage && (
+          <FooterNextPrevBtnSvg
+            onClick={() => onchangePage(currentPage + 1)}
+            btnSvg={ProductListSvg.nextBtn}
+          />
+        )}
+      </WrapFooterPageBtn>
+      <PageDescription>숙소 300개 이상 중 1-20</PageDescription>
+      <AddDescription>
+        추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.
+      </AddDescription>
+    </FooterContainer>
+  );
 }
 
 const tempData = [1, 2, 3, 4, 5];

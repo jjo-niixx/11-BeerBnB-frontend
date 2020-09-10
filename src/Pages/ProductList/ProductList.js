@@ -1,30 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  filterToggle,
+  getRoomsInfo,
+} from "../../modules/ProductList/productList";
 import styled from "styled-components";
 import ProductListMain from "./ProductListMain/ProductListMain";
+import AsideMap from "./AsideMap/AsideMap";
+import { productListAPI } from "../../config";
 
-function ProductList() {
-  const [activeFilterIndex, setActiveFilterIndex] = useState(null);
+export default function ProductList() {
+  const dispatch = useDispatch();
+  const { checkedOptions, currentPage } = useSelector(
+    ({ productList: { checkedOptions, currentPage } }) => ({
+      checkedOptions: checkedOptions,
+      currentPage: currentPage,
+    })
+  );
 
-  const onFilterClick = (e, idx) => {
-    // 현재 active 상태인 토글을 다시 클릭하면 끄도록 처리함
-    setActiveFilterIndex(activeFilterIndex === idx ? null : idx);
-    e.stopPropagation();
-  };
+  useEffect(() => {
+    const isRefundChecked = checkedOptions.refund?.length;
+    const homeTypeList = ["entire_house", "guest_room", "private_room"];
+
+    fetch(
+      `${productListAPI}/rooms?${
+        isRefundChecked ? `refund="${checkedOptions.refund}"&` : ""
+      }${homeTypeList
+        .map((homeType) =>
+          checkedOptions.home_type.includes(homeType)
+            ? `home_type=${homeType}&`
+            : ""
+        )
+        .join("")}limit=10&offset=${(currentPage - 1) * 10}`
+    )
+      .then((res) => res.json())
+      .then((res) => dispatch(getRoomsInfo(res)));
+
+    window.scrollTo({ top: 0 });
+  }, [checkedOptions, currentPage]);
 
   return (
-    <div onClick={() => setActiveFilterIndex(null)}>
+    <div onClick={() => dispatch(filterToggle(null))}>
       <SpaceForNav />
       <ProductListWrap>
-        <ProductListMain
-          activeFilterIndex={activeFilterIndex}
-          onFilterClick={onFilterClick}
-        />
+        <ProductListMain />
+        <div>
+          <AsideMap />
+        </div>
       </ProductListWrap>
     </div>
   );
 }
-
-export default ProductList;
 
 const SpaceForNav = styled.div`
   height: 150px;

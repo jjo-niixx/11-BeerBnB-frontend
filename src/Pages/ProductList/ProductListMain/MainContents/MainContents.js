@@ -1,14 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import MainContentsItems from "./MainContentsItems/MainContentsItems";
 import ProductListMainFooter from "./ProductListMainFooter/ProductListMainFooter";
 import mixin from "../../../../Styles/mixin";
 
-export default function MainContents({
-  currentPage,
-  onChangePage,
-  roomsInfoList,
-}) {
+export default function MainContents() {
+  const { roomsInfo, currentPage } = useSelector(
+    ({ productList: { roomsInfo, currentPage } }) => ({
+      roomsInfo: roomsInfo,
+      currentPage: currentPage,
+    })
+  );
   return (
     <article>
       <ContentsHeader>
@@ -27,14 +30,10 @@ export default function MainContents({
           </FilterRecommend>
         </WrapTripDescription>
       </ContentsHeader>
-      {roomsInfoList.rooms_list?.map((roomsInfo, index) => (
-        <MainContentsItems key={roomsInfo.id + index} roomsInfo={roomsInfo} />
+      {roomsInfo.rooms_list?.map((roomInfo, index) => (
+        <MainContentsItems key={roomInfo.id + index} roomInfo={roomInfo} />
       ))}
-      <ProductListMainFooter
-        currentPage={currentPage}
-        onChangePage={onChangePage}
-        roomsInfoList={roomsInfoList}
-      />
+      <ProductListMainFooter currentPage={currentPage} roomsInfo={roomsInfo} />
     </article>
   );
 }

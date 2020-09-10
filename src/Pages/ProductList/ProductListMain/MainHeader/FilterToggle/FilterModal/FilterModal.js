@@ -1,46 +1,43 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import ModalBottom from "./ModalBottom/ModalBottom";
 import theme from "../../../../../../Styles/Theme";
 
-export default function FilterModal({
-  filterInfo,
-  index,
-  isRefundChecked,
-  onCheckRefundPolicy,
-  checkedRoomTypeList,
-  roomTypeFilterHandler,
-  unCheckHandler,
-  activeCleanBtnList,
-  saveCheckedList,
-  onFilterClick,
-  isInstantChecked,
-  onCheckInstantReserve,
-}) {
-  const { HeaderModal, isClearBtnOn, title, id } = filterInfo;
-  const isOwnTitle = activeCleanBtnList.includes(id);
+export default function FilterModal({ filterInfo, index }) {
+  const { isRefundChecked, checkedRoomTypes, isInstantChecked } = useSelector(
+    ({
+      productList: { isRefundChecked, checkedRoomTypes, isInstantChecked },
+    }) => ({
+      isRefundChecked: isRefundChecked,
+      checkedRoomTypes: checkedRoomTypes,
+      isInstantChecked: isInstantChecked,
+    })
+  );
+  const { HeaderModal, isClearBtnOn, title } = filterInfo;
+  const isOwnTitle = (name) => {
+    switch (name) {
+      case "유연한 환불 정책":
+        return isRefundChecked;
+      case "숙소 유형":
+        return checkedRoomTypes;
+      case "즉시 예약":
+        return isInstantChecked;
+      default:
+        return;
+    }
+  };
 
   return (
     <ModalContainer onClick={(e) => e.stopPropagation()}>
       <HeaderBox>
-        <HeaderModal
-          onCheckRefundPolicy={onCheckRefundPolicy}
-          isRefundChecked={isRefundChecked}
-          checkedRoomTypeList={checkedRoomTypeList}
-          roomTypeFilterHandler={roomTypeFilterHandler}
-          isInstantChecked={isInstantChecked}
-          onCheckInstantReserve={onCheckInstantReserve}
-        />
+        <HeaderModal />
       </HeaderBox>
       <ModalBottom
         title={title}
         index={index}
-        unCheckHandler={unCheckHandler}
-        isRefundChecked={isRefundChecked}
         isClearBtnOn={isClearBtnOn}
         isOwnTitle={isOwnTitle}
-        saveCheckedList={saveCheckedList}
-        onFilterClick={onFilterClick}
       />
     </ModalContainer>
   );

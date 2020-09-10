@@ -6,31 +6,15 @@ import RoomsTypeModal from "./FilterToggle/FilterModal/RoomsTypeModal/RoomsTypeM
 import PaymentModal from "./FilterToggle/FilterModal/PaymentModal/PaymentModal";
 import InstantModal from "./FilterToggle/FilterModal/InstantModal/InstantModal";
 
-export default function MainHeader({
-  activeFilterIndex,
-  onFilterClick,
-  updateCheckedList,
-  checkedOptions,
-}) {
+export default function MainHeader() {
   return (
     <article>
-      <StayPeriod>300개 이상의 숙소 · 9월 2일 - 9월 16일</StayPeriod>
+      <StayPeriod>300개 이상의 숙소 · 9월 20일 - 9월 26일</StayPeriod>
       <StaySpotTitle>서울의 숙소</StaySpotTitle>
       <HeaderOptionContainer>
         {FILTER_INFO_LIST.map((filterInfo, index) => {
-          const isActiveFilter = index === activeFilterIndex;
-
           return (
-            <FilterToggle
-              key={index}
-              filterInfo={filterInfo}
-              active={isActiveFilter}
-              index={index}
-              onClick={(e) => onFilterClick(e, index)}
-              updateCheckedList={updateCheckedList}
-              checkedOptions={checkedOptions}
-              onFilterClick={onFilterClick}
-            />
+            <FilterToggle key={index} filterInfo={filterInfo} index={index} />
           );
         })}
       </HeaderOptionContainer>
