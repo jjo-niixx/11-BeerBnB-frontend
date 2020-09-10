@@ -49,9 +49,10 @@ export default function GoogleSignIn() {
               sessionStorage.removeItem("googleToken");
               console.log(res);
               if (res.message === "NON_EXISTENT_GOOGLE_USER") {
+                alert("등록된 회원이 아닙니다. 회원가입 페이지로 이동합니다.");
                 setIsGSignUpActive(true);
                 setData(res);
-                console.log(data);
+                history.push("/search");
               } else {
                 alert("이미 등록된 회원입니다. 메인 페이지로 이동합니다.");
                 history.push("/");

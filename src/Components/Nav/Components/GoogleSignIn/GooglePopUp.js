@@ -15,6 +15,7 @@ export default function GooglePopUp(data) {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
+  const [isActive, setIsActive] = useState("flex");
 
   const history = useHistory();
 
@@ -45,6 +46,7 @@ export default function GooglePopUp(data) {
         .then((res) => {
           if (res.message === "SUCCESS") {
             alert("회원가입에 성공했습니다.");
+            setIsActive("none");
             history.push("/");
           } else {
             console.log(res.message);
@@ -57,7 +59,7 @@ export default function GooglePopUp(data) {
   };
 
   return (
-    <Container>
+    <Container isActive={isActive}>
       <Wrapper>
         <Header>
           <h1>Complete your information</h1>
@@ -141,9 +143,15 @@ export default function GooglePopUp(data) {
 
 const Container = styled.div`
   ${mixin.flexSet}
+  display: ${({ isActive }) => isActive};
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.backgroundColorWhite};
+  z-index: 100;
 `;
 
 const Wrapper = styled.div`
