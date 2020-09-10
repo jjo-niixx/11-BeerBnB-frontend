@@ -5,6 +5,7 @@ import Main from "./Pages/Main/Main";
 import ProductList from "./Pages/ProductList/ProductList";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import Footer from "./Components/Footer/Footer";
+import GooglePopUp from "./Components/Nav/Components/GoogleSignIn/GooglePopUp";
 
 class Routes extends Component {
   render() {
@@ -12,6 +13,7 @@ class Routes extends Component {
       <Router>
         <Nav />
         <Switch>
+          <Route exact path="/google" component={GooglePopUp} />
           <Route exact path="/" component={Main} />
           <Route exact path="/productlist" component={ProductList} />
           <Route exact path="/productdetail/:id" component={ProductDetail} />
