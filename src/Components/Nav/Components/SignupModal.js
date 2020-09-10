@@ -10,6 +10,7 @@ import {
   ExtraAction,
   ExtraSection,
 } from "./ReusableStyle";
+import GoogleSignIn from "./GoogleSignIn/GoogleSignIn";
 import NavSvg from "../NavSvg";
 
 export default function SignupModal({ toggleSignup }) {
@@ -37,14 +38,7 @@ export default function SignupModal({ toggleSignup }) {
             {NavSvg.facebookLogo}
             페이스북 계정으로 회원 가입
           </FullWideBtn>
-          <FullWideBtn
-            borderColor="rgb(118, 118, 118)"
-            background="rgb(255, 255, 255)"
-            color="rgb(72, 72, 72)"
-          >
-            {NavSvg.googleLogo}
-            구글 계정으로 회원가입
-          </FullWideBtn>
+          <GoogleSignIn />
           <OrBorder>
             <span>또는</span>
           </OrBorder>

@@ -13,6 +13,7 @@ import {
   ExtraAction,
   ExtraSection,
 } from "./ReusableStyle";
+import GoogleSignIn from "../Components/GoogleSignIn/GoogleSignIn";
 import { signInAPI } from "../../../config";
 import mixin from "../../../Styles/mixin";
 import NavSvg from "../NavSvg";
@@ -75,14 +76,7 @@ export default function LoginModal({ toggleLogin }) {
             {NavSvg.facebookLogo}
             페이스북 계정으로 로그인
           </FullWideBtn>
-          <FullWideBtn
-            borderColor="rgb(118, 118, 118)"
-            background="rgb(255, 255, 255)"
-            color="rgb(72, 72, 72)"
-          >
-            {NavSvg.googleLogo}
-            구글 계정으로 로그인
-          </FullWideBtn>
+          <GoogleSignIn />
           <OrBorder>
             <span>또는</span>
           </OrBorder>
@@ -144,7 +138,7 @@ export default function LoginModal({ toggleLogin }) {
 }
 
 const ErrorBox = styled.div`
-  display: flex;
+  display: none;
   width: 100%;
   margin-bottom: 16px;
 
