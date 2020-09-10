@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import moment from "moment";
+import { datesChange } from "../../../modules/ProducDetail/dayPicker";
 import Location from "./SearchItem/Location";
 import Dates from "./SearchItem/Dates";
 import Guest from "./SearchItem/Guest";
@@ -7,13 +11,22 @@ import NavSvg from "../../../Components/Nav/NavSvg";
 import mixin from "../../../Styles/mixin";
 
 export default function SearchBox() {
+  const { dateRange } = useSelector(({ dayPicker }) => ({
+    dateRange: dayPicker.dateRange,
+  }));
+  const { startDate, endDate } = dateRange;
+
+  const { guests } = useSelector(({ guestCount: { guests } }) => ({
+    guests: guests,
+  }));
+  const { adult, child, infant } = guests;
+
   const [locationInput, setLocationInput] = useState("");
   const [isActive, setIsActive] = useState({
     location: false,
     date: false,
     guest: false,
   });
-  const [guestList, setGuestList] = useState({ adult: 0, child: 0, infant: 0 });
 
   const toggleLocation = () => {
     setIsActive({ ...isActive, location: !isActive.location });
@@ -25,10 +38,6 @@ export default function SearchBox() {
 
   const toggleGuest = () => {
     setIsActive({ ...isActive, guest: !isActive.guest });
-  };
-
-  const handleGuest = (item, num) => {
-    setGuestList({ ...guestList, [item]: num });
   };
 
   const handleInput = (e) => {
@@ -44,7 +53,6 @@ export default function SearchBox() {
   );
 
   let guestNum;
-  const { adult, child, infant } = guestList;
   if (adult === 0 && child === 0 && infant === 0) {
     guestNum = `게스트 추가`;
   } else if (infant === 0) {
@@ -52,6 +60,9 @@ export default function SearchBox() {
   } else if (infant !== 0) {
     guestNum = `게스트 ${adult + child}명, 유아 ${infant}명`;
   }
+
+  const _startDate = moment(startDate).format("YYYY-MM-DD");
+  const _endDate = moment(endDate).format("YYYY-MM-DD");
 
   return (
     <RoomSearch>
@@ -67,13 +78,13 @@ export default function SearchBox() {
       <ItemRightBorder />
       <SearchItem>
         <ItemTitle>체크인</ItemTitle>
-        <button onClick={toggleDates}>날짜 추가</button>
+        <input onClick={toggleDates} value={_startDate}></input>
         {isActive.date && <Dates />}
       </SearchItem>
       <ItemRightBorder />
       <SearchItem>
         <ItemTitle>체크아웃</ItemTitle>
-        <button>날짜 추가</button>
+        <input value={_endDate}></input>
       </SearchItem>
       <ItemRightBorder />
       <SearchItem>
@@ -81,10 +92,12 @@ export default function SearchBox() {
           <ItemTitle>인원</ItemTitle>
           <button onClick={toggleGuest}>{guestNum}</button>
         </div>
-        <SearchBtn top="7px" right="12px" width="48px" height="48px">
-          {NavSvg.searchBtnLarge}
-        </SearchBtn>
-        {isActive.guest && <Guest handleGuest={handleGuest} />}
+        <Link to="/productlist">
+          <SearchBtn top="7px" right="12px" width="48px" height="48px">
+            {NavSvg.searchBtnLarge}
+          </SearchBtn>
+        </Link>
+        {isActive.guest && <Guest />}
       </SearchItem>
     </RoomSearch>
   );
@@ -106,17 +119,12 @@ const SearchItem = styled.div`
   padding: 14px 24px;
   text-align: left;
 
-  input {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
+  input,
   button {
     padding: 0;
+    border: none;
     color: ${({ theme }) => theme.fontColorGray};
-    text-align: left;
+    cursor: pointer;
   }
 
   &:nth-of-type(4) {

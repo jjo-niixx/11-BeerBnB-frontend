@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateGuests } from "../../../../modules/SearchBox/guestCount";
 import styled from "styled-components";
 import mixin from "../../../../Styles/mixin";
 import SearchBoxSvg from "../SearchBoxSvg";
 
-export default function Guest({ handleGuest }) {
-  const [adult, setAdult] = useState(0);
-  const [child, setChild] = useState(0);
-  const [infant, setInfant] = useState(0);
-
-  useEffect(() => {
-    handleGuest("adult", adult);
-  }, [adult]);
-
-  useEffect(() => {
-    handleGuest("child", child);
-  }, [child]);
-
-  useEffect(() => {
-    handleGuest("infant", infant);
-  }, [infant]);
+export default function Guest() {
+  const dispatch = useDispatch();
+  const { guests } = useSelector(({ guestCount: { guests } }) => ({
+    guests: guests,
+  }));
+  const { adult, child, infant } = guests;
 
   return (
     <GuestSection right="0">
@@ -30,14 +22,18 @@ export default function Guest({ handleGuest }) {
         <GuestCount>
           <button
             disabled={adult > 0 ? false : true}
-            onClick={() => {
-              setAdult(adult - 1);
-            }}
+            onClick={() =>
+              dispatch(updateGuests({ ...guests, adult: adult - 1 }))
+            }
           >
             {SearchBoxSvg.minusBtn}
           </button>
           <CountNum>{adult}</CountNum>
-          <button onClick={() => setAdult(adult + 1)}>
+          <button
+            onClick={() =>
+              dispatch(updateGuests({ ...guests, adult: adult + 1 }))
+            }
+          >
             {SearchBoxSvg.plusBtn}
           </button>
         </GuestCount>
@@ -50,12 +46,18 @@ export default function Guest({ handleGuest }) {
         <GuestCount>
           <button
             disabled={child > 0 ? false : true}
-            onClick={() => setChild(child - 1)}
+            onClick={() =>
+              dispatch(updateGuests({ ...guests, child: child - 1 }))
+            }
           >
             {SearchBoxSvg.minusBtn}
           </button>
           <CountNum>{child}</CountNum>
-          <button onClick={() => setChild(child + 1)}>
+          <button
+            onClick={() =>
+              dispatch(updateGuests({ ...guests, child: child + 1 }))
+            }
+          >
             {SearchBoxSvg.plusBtn}
           </button>
         </GuestCount>
@@ -68,12 +70,18 @@ export default function Guest({ handleGuest }) {
         <GuestCount>
           <button
             disabled={infant > 0 ? false : true}
-            onClick={() => setInfant(infant - 1)}
+            onClick={() =>
+              dispatch(updateGuests({ ...guests, infant: infant - 1 }))
+            }
           >
             {SearchBoxSvg.minusBtn}
           </button>
           <CountNum>{infant}</CountNum>
-          <button onClick={() => setInfant(infant + 1)}>
+          <button
+            onClick={() =>
+              dispatch(updateGuests({ ...guests, infant: infant + 1 }))
+            }
+          >
             {SearchBoxSvg.plusBtn}
           </button>
         </GuestCount>

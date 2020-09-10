@@ -65,6 +65,19 @@ const NavSvg = {
       </g>
     </svg>
   ),
+  myProfile: (
+    <img
+      style={{
+        display: "block",
+        height: "30px",
+        width: "30px",
+        marginLeft: "12px",
+        borderRadius: "50%",
+      }}
+      src="https://a0.muscache.com/im/pictures/user/2e71f975-ed68-4b8d-a188-2d16b0d15bac.jpg?aki_policy=profile_medium"
+      alt=""
+    />
+  ),
   PoppedProfileBtnPerson: (
     <svg
       aria-hidden="true"

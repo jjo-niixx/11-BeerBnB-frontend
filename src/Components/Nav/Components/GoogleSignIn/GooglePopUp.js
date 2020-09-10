@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { loginToggle } from "../../../../modules/Login/googleLogin";
 import { InfoSection, InfoInput, FullWideBtn } from "../ReusableStyle";
 import {
   SignupInfoBirth,
@@ -12,6 +14,12 @@ import mixin from "../../../../Styles/mixin";
 import NavSvg from "../../NavSvg";
 
 export default function GooglePopUp(data) {
+  const dispatch = useDispatch();
+  const { isLoginActive } = useSelector(
+    ({ googleLogin: { isLoginActive } }) => ({
+      isLoginActive: isLoginActive,
+    })
+  );
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
@@ -49,7 +57,6 @@ export default function GooglePopUp(data) {
             setIsActive("none");
             history.push("/");
           } else {
-            console.log(res.message);
             alert("다시 한번 확인해주세요.");
           }
         });
