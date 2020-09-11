@@ -4,6 +4,8 @@ import dayPicker from "./ProducDetail/dayPicker";
 import productList from "./ProductList/productList";
 import reviewModal from "./ProducDetail/reviewModal";
 import booking from "./ProducDetail/booking";
+import guestCount from "./SearchBox/guestCount";
+import googleLogin from "../modules/Login/googleLogin";
 
 const rootReducer = combineReducers({
   productDetail,
@@ -11,6 +13,8 @@ const rootReducer = combineReducers({
   productList,
   reviewModal,
   booking,
+  guestCount,
+  googleLogin,
 });
 
 export default rootReducer;

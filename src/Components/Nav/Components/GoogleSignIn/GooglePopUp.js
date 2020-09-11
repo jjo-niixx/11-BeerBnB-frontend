@@ -56,6 +56,7 @@ export default function GooglePopUp(data) {
             alert("회원가입에 성공했습니다.");
             setIsActive("none");
             history.push("/");
+            setIsActive("none");
           } else {
             alert("다시 한번 확인해주세요.");
           }
