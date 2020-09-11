@@ -43,7 +43,7 @@ export default function Reservation() {
   const { oneDayPrice, serviceFee, nightsFee } = priceInfo;
   const totalPrice = oneDayPrice * numberOfNights + serviceFee + nightsFee;
   const title = dateSelected
-    ? `${oneDayPrice} / 박`
+    ? `${oneDayPrice.toLocaleString()} / 박`
     : "요금을 확인하려면 날짜를 입력하세요.";
 
   const booking = async () => {

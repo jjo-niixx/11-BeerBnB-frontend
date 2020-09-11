@@ -22,7 +22,7 @@ function PriceInfo({
       <Notification>예약 확정 전에는 요금이 청구되지 않습니다.</Notification>
       <Price>
         <div>{`₩ ${oneDayPrice} X ${numberOfNights}박`}</div>
-        <div>{`₩ ${oneDayPrice * numberOfNights}`}</div>
+        <div>{`₩ ${(oneDayPrice * numberOfNights).toLocaleString()}`}</div>
       </Price>
       {FEES.map((el) => (
         <Fee
@@ -34,7 +34,7 @@ function PriceInfo({
       ))}
       <TotalPrice>
         <div>총 합계</div>
-        <div>{`₩ ${totalPrice}`}</div>
+        <div>{`₩ ${totalPrice.toLocaleString()}`}</div>
       </TotalPrice>
     </Container>
   );

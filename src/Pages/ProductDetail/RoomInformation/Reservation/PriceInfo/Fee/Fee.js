@@ -7,7 +7,9 @@ function Fee({ title, serviceFee, nightsFee }) {
     <Container>
       <div>{title}</div>
       <div>
-        {title === "서비스 수수료" ? `₩ ${serviceFee}` : `₩ ${nightsFee}`}
+        {title === "서비스 수수료"
+          ? `₩ ${serviceFee.toLocaleString()}`
+          : `₩ ${nightsFee.toLocaleString()}`}
       </div>
     </Container>
   );

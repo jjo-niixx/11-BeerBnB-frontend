@@ -147,7 +147,7 @@ const LoadingWrapper = styled.div`
     img {
       width: 300px;
       height: 300px;
-      animation: ${rolling} 800ms infinite linear;
+      animation: ${rolling} 1200ms infinite linear;
     }
   }
 `;

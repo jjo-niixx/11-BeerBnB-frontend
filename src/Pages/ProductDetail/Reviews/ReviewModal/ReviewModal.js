@@ -86,7 +86,7 @@ function ReviewModal() {
         </Information>
         <Reviews>
           <ReviewItems modal />
-          <button ref={lastBox}>{loading ? "loading" : "로드"}</button>
+          <div ref={lastBox} />
         </Reviews>
       </Modal>
       {loading && <Spinner />}

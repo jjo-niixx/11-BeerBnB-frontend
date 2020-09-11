@@ -37,7 +37,7 @@ export default function MainContentsItems({ roomInfo }) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`${REVIEWS_API}/${id}`)
+    fetch(`${REVIEWS_API}${id}`)
       .then((res) => res.json())
       .then((res) => setReviewData(res));
   }, []);
