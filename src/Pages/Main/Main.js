@@ -139,7 +139,7 @@ const ListDescGroup = [
   {
     title: "집 전체",
     desc:
-      "일행만을 위한 편안한 공간에서 친구 및 가족과 오붓한 시간을 보내세요.",
+      "일행만을 위한 편안한 공간에서 친구 및 가족과 오붓한 시간을 보내세요.",
     src:
       "https://a0.muscache.com/im/pictures/fdb46962-10c1-45fc-a228-d0b055411448.jpg?im_w=720",
   },

@@ -55,7 +55,7 @@ const FILTER_INFO_LIST = [
   },
   {
     id: "roomType",
-    title: "숙소 유형",
+    title: "숙소 유형",
     type: "MODAL",
     HeaderModal: RoomsTypeModal,
     isClearBtnOn: true,

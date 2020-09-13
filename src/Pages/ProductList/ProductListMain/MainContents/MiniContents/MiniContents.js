@@ -114,7 +114,7 @@ const SuperHost = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
 `;
 

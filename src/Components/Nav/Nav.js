@@ -43,7 +43,7 @@ export default function Nav() {
         </ReducedSearch>
         <SiteExtra>
           <ExtraDetail>
-            <ExtraBtn>호스트 되기</ExtraBtn>
+            <ExtraBtn>호스트 되기</ExtraBtn>
             <ExtraBtn>
               {NavSvg.translation}
               {NavSvg.translationArrow}

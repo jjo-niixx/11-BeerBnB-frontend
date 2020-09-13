@@ -70,8 +70,8 @@ export default function MainContentsItems({ roomInfo }) {
           <InfoPrice>
             <ReviewNum>
               <ReviewNumContainer>{ProductListSvg.pinkStar}</ReviewNumContainer>
-              {rate_avg}
-              <ReviewersNum>{`(${review})`}</ReviewersNum>
+              {rate_avg ? rate_avg : "후기 없음"}
+              <ReviewersNum>{review ? `(${review})` : ""}</ReviewersNum>
             </ReviewNum>
             <ProductItemPrice>
               <div>
@@ -180,6 +180,6 @@ const SuperHost = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
 `;

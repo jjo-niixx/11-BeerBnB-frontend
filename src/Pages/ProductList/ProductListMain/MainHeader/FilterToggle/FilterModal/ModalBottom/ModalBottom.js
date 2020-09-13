@@ -29,7 +29,7 @@ export default function ModalBottom({ isClearBtnOn, title, isOwnTitle }) {
       case "유연한 환불 정책":
         dispatch(refundToggle(!isRefundChecked));
         break;
-      case "숙소 유형":
+      case "숙소 유형":
         dispatch(updateCheckedTypes([]));
         break;
       default:
@@ -45,7 +45,7 @@ export default function ModalBottom({ isClearBtnOn, title, isOwnTitle }) {
           refund: isRefundChecked ? "on" : "",
         });
         break;
-      case "숙소 유형":
+      case "숙소 유형":
         onUpdateChecked({
           ...checkedOptions,
           home_type: checkedRoomTypes,

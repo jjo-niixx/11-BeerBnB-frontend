@@ -12,7 +12,7 @@ export default function FilterModal({ filterInfo, index }) {
     switch (name) {
       case "유연한 환불 정책":
         return isRefundChecked;
-      case "숙소 유형":
+      case "숙소 유형":
         return checkedRoomTypes.length;
       case "즉시 예약":
         return isInstantChecked;
