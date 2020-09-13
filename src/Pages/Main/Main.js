@@ -36,7 +36,8 @@ export default function Main() {
 const SiteContainer = styled.div`
   max-width: 1280px;
   margin-top: 24px;
-  padding: 150px 0;
+  margin: 0 auto;
+  padding: 200px 0;
 `;
 
 const Wrapper = styled.div`

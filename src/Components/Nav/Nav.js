@@ -65,7 +65,7 @@ const NavContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 150px;
+  height: 170px;
   padding: 0 80px;
   background-color: ${({ theme }) => theme.backgroundColorWhite};
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
