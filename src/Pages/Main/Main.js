@@ -34,7 +34,7 @@ export default function Main() {
 }
 
 const SiteContainer = styled.div`
-  width: 100vw;
+  max-width: 1280px;
   margin-top: 24px;
   padding: 150px 0;
 `;

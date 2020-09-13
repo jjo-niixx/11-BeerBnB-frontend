@@ -78,13 +78,13 @@ export default function SearchBox() {
       <ItemRightBorder />
       <SearchItem>
         <ItemTitle>체크인</ItemTitle>
-        <input onClick={toggleDates} value={_startDate}></input>
+        <input readOnly onClick={toggleDates} value={_startDate} />
         {isActive.date && <Dates />}
       </SearchItem>
       <ItemRightBorder />
       <SearchItem>
         <ItemTitle>체크아웃</ItemTitle>
-        <input value={_endDate}></input>
+        <input readOnly value={_endDate} />
       </SearchItem>
       <ItemRightBorder />
       <SearchItem>

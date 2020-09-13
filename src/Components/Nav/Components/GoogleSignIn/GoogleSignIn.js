@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
+import { useDispatch, useSelector } from "react-redux";
+import { loginToggle } from "../../../../modules/Login/googleLogin";
 import { FullWideBtn } from "../../Components/ReusableStyle";
 import GooglePopUp from "./GooglePopUp";
 import { signInAPI } from "../../../../config";
 import NavSvg from "../../NavSvg";
 
 export default function GoogleSignIn() {
+  const dispatch = useDispatch();
+  const { isLoginActive } = useSelector(
+    ({ googleLogin: { isLoginActive } }) => ({
+      isLoginActive: isLoginActive,
+    })
+  );
   const [isGSignUpActive, setIsGSignUpActive] = useState(false);
   const [data, setData] = useState("");
 
@@ -52,10 +60,10 @@ export default function GoogleSignIn() {
                 alert("등록된 회원이 아닙니다. 회원가입 페이지로 이동합니다.");
                 setIsGSignUpActive(true);
                 setData(res);
-                history.push("/search");
               } else {
                 alert("이미 등록된 회원입니다. 메인 페이지로 이동합니다.");
                 history.push("/");
+                dispatch(loginToggle(true));
               }
             });
         }}

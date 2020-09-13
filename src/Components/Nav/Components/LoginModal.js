@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { loginToggle } from "../../../modules/Login/googleLogin";
 import {
   ModalContainer,
   ModalWrapper,
@@ -19,6 +21,12 @@ import mixin from "../../../Styles/mixin";
 import NavSvg from "../NavSvg";
 
 export default function LoginModal({ toggleLogin }) {
+  const dispatch = useDispatch();
+  const { isLoginActive } = useSelector(
+    ({ googleLogin: { isLoginActive } }) => ({
+      isLoginActive: isLoginActive,
+    })
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -51,6 +59,7 @@ export default function LoginModal({ toggleLogin }) {
             alert("로그인에 성공했습니다.");
             sessionStorage.setItem("access_token", res.access_token);
             history.push("/");
+            dispatch(loginToggle(true));
           } else {
             alert("이메일 및 비밀번호를 확인하세요.");
           }
