@@ -1,4 +1,4 @@
-# Beer BnB
+# Beer BnB 프론트엔드
 
 > 숙박 공유 서비스 에어비앤비 클론 프로젝트
 > ![schema](https://user-images.githubusercontent.com/54208214/93005168-71652480-f589-11ea-9b5c-3a3645df2628.png)
